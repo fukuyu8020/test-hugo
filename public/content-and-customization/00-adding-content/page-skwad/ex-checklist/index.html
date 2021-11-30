@@ -1,0 +1,3109 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+	WebApp Security Assessment :: DocPort Documentation
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2021-11-30T20:43:16 JST">
+<meta name="description" content="Very long and Complex example, with file save/load on client side">
+
+
+
+<title>WebApp Security Assessment :: DocPort Documentation</title>
+
+<link rel="shortcut icon" href='/images/favicon.png' type="image/x-icon" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel="stylesheet">
+
+
+
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/layout.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/css/style.main.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/css/style.menu.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/notice.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/tabs.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/panel.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/columns.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/children.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/attachments.css'>
+<link rel="stylesheet" type="text/css" href='https://example.com/sass/shortcodes/alert.css'>
+<link rel="stylesheet" type="text/css" href='/css/docport.css'>
+
+<script src='/js/docport.js'></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/example.com";
+</script>
+
+
+
+
+    
+  </head>
+
+  <body data-url="/content-and-customization/00-adding-content/page-skwad/ex-checklist/"
+
+  class="hidenav hidebreadcrumb hidenextpage ">
+
+<style type="text/css">
+  #debug{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 3.5rem;
+    margin-bottom: .35rem;
+    padding: 0 2rem;
+    position: fixed;
+    left: 0;      right: 0;     top: 0;
+   
+    top:0px;
+    
+    min-height: 150px;
+
+    background-color: white;
+    border: 3px solid red;
+    z-index: 10000 ;
+    word-wrap: all;
+    overflow: auto;
+  }
+</style>
+ 
+
+
+    
+    
+    <header style="">
+        <div>
+    
+
+    <div>
+
+		
+	
+			
+		
+	    	<a class='baselink' href='https://example.com'>DocPort Documentation</a>
+	  	
+	</div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docport"  rel="noopener">
+                  Github
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docport/archive/master.zip"  rel="noopener">
+                  Download
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://gohugo.io/"  rel="noopener">
+                  Hugo Documentation
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/docport-theme/credits/"  rel="noopener">
+                  Credits
+                </a>
+            </li>
+    </nav>
+
+</div>
+    </header>
+    
+
+    <article>
+      
+
+      <section class="page ">
+      
+	
+		
+    
+    
+    
+
+    
+		
+        
+		
+		
+		
+		
+		
+		
+		
+
+		
+			<h1>WebApp Security Assessment</h1>
+        
+
+			
+			
+		
+
+		
+				<nav class="subpages">
+	            		
+	        			
+	            	<li >
+	            		<a title="$pagetitle" href="/content-and-customization/00-adding-content/page-skwad/ex-checklist/test/">Test Form</a>
+	            	</li>
+	        	</nav> 
+		
+	
+
+	
+	
+	<div class="jump-to-section">
+		<span onclick="$h = $(this);$h.next('nav').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('nav').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+  			<span class="fas fa-align-right"></span>
+  			Jump to Section
+  			<i style=";" class="fas fa-chevron-right"></i>
+		</span>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#application-metadata">Application Metadata</a></li>
+    <li><a href="#vulnerability-reporting-and-management">Vulnerability Reporting and Management</a></li>
+    <li><a href="#https-and-mixed-content-risks">HTTPS and Mixed-Content Risks</a></li>
+    <li><a href="#authentication-and-authorization">Authentication and Authorization</a></li>
+    <li><a href="#common-web-vulnerabilities">Common Web Vulnerabilities</a></li>
+    <li><a href="#testing-qa-and-monitoring">Testing, QA, and Monitoring</a></li>
+    <li><a href="#additional-notes">Additional Notes</a></li>
+    <li><a href="#security-contacts">Security Contacts</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+  </ul>
+</nav>
+	</div>
+	
+	
+
+
+
+
+
+
+	<div class="content">
+	
+	<link rel="stylesheet" href='https://example.com/css/checklist.main.css'>
+
+	
+	<form 
+	method="POST" 
+	id="1b67eb83f738bfc3a59f5dd8282f1348" ref="WebApp Security Assessment-1b67eb83f738bfc3a59f5dd8282f1348">
+
+
+		
+		<div class="form-group checklist-header">
+			<label class="sr-only" for="inputFile">File Upload</label>
+			<input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="application/json"
+				   onchange="skwad.UseDocumentWithFile(this)" data-title="Load answers from file">
+		</div>
+		
+
+	    
+
+<div class="notices success">
+	<p>This is a demo of a <a href="https://example.com/content-and-customization/00-adding-content/page-skwad/">skwad page</a></p>
+
+</div>
+
+<h2 ref="application-metadata" >Application Metadata</h2><a class="anchor" id="application-metadata"></a>
+<p>The name of the application: 
+<p><input 
+name="app_name" 
+required="true" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+</p>
+<p>A brief description:
+<textarea 
+	name="app_description" 
+	required="true" 
+	placeholder='Lorem placeholder'
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</p>
+<p>What frameworks (if any) does this application require?
+<p><input 
+name="app_frameworks" 
+required="true" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+</p>
+<h2 ref="vulnerability-reporting-and-management" >Vulnerability Reporting and Management</h2><a class="anchor" id="vulnerability-reporting-and-management"></a>
+<p>Because no system is entirely free of security issues, it&rsquo;s important to provide ways for external users to offer input and report vulnerabilities.</p>
+<p><strong>Do you have an easily discoverable way for external researchers to report security vulnerabilities in your systems?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="app_vuln_report_way"
+  id="app_vuln_report_way-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vuln_report_way-1">Yes, we have a published security email contact, or we provide another way for users to report security issues. Incoming reports are timely reviewed and triaged.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="app_vuln_report_way"
+  id="app_vuln_report_way-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vuln_report_way-2">No, we do not currently offer a way to report security vulnerabilities for priority handling.</label>
+</div>
+</p>
+<div id="dp-show-9908357cc7ccbc561cf7ab20faa54623" class="baz" style="display:none" v-if="skwad.fValue(&#39;app_vuln_report_way&#39;) == &#39;no&#39;">
+<input type="hidden" name="warn_app_vuln_report_way_no" value="No external security contact published">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Make it easy for others to let you know about security issues in your products. That way you&rsquo;ll learn about vulnerabilities earlier and can respond to them quickly. Also, without an easy way to report issues directly to you, external researchers might publish issues widely instead.
+<br>
+<br>
+If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</p>
+<textarea 
+	name="app_vuln_report_way_countermeasures" 
+	required="true" 
+	placeholder='Lorem placeholder'
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<h2 ref="https-and-mixed-content-risks" >HTTPS and Mixed-Content Risks</h2><a class="anchor" id="https-and-mixed-content-risks"></a>
+<p><strong>Select the option that best describes your web application:</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_exposition"
+  id="https_exposition-1"
+  value="https"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_exposition-1">The web application is reachable exclusively over HTTPS. Even if the user manually edits the URL to start with <code>http://</code>, it won&rsquo;t work or it will redirect to <code>https://</code>.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_exposition"
+  id="https_exposition-2"
+  value="http_https"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_exposition-2">The web application is flexible — users can reach it over HTTP or over HTTPS.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_exposition"
+  id="https_exposition-3"
+  value="http_only"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_exposition-3">The web application supports HTTP only, and can&rsquo;t be reached over HTTPS even if you edit the URL.</label>
+</div>
+</p>
+<div id="dp-show-0b433a0809a019055db1290110880970" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_exposition&#39;) == &#39;http_https&#39; || skwad.fValue(&#39;https_exposition&#39;) == &#39;http_only&#39;">
+<input type="hidden" name="warn_https_exposition" value="Unencrypted application network traffic">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+It&rsquo;s often extremely easy for attackers to eavesdrop on packets transmitted between users and web applications (for example, on public Wi-Fi networks). To avoid exposing sensitive data in transit, any application that allows users to log in — or contains anything but public data — should be available solely over HTTPS. It&rsquo;s also fine to use a web server that listens on port 80 (plain HTTP) and redirects users to the SSL version; this method can make it easier for users to access the application.
+<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below.</strong></p>
+<textarea 
+	name="https_exposition_countermeasures" 
+	required="true" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<p>
+<div id="dp-show-0900b0a001b83a57d092531001188994" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_exposition&#39;) == &#39;https&#39; || skwad.fValue(&#39;https_exposition&#39;) == &#39;http_https&#39;">
+<h3 ref="configuring-ssltls" >Configuring SSL/TLS</h3><a class="anchor" id="configuring-ssltls"></a>
+<p><strong>Have you recently reviewed your SSL configuration to ensure that only secure protocols and ciphers are offered to clients?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_conf"
+  id="https_conf-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_conf-1">Yes, we regularly review the cipher suite advertised by the server and the protocols it uses.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_conf"
+  id="https_conf-2"
+  value="not_sure"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_conf-2">We&rsquo;re not sure whether our SSL/TLS configuration is secure.</label>
+</div>
+<div id="dp-show-101a91d283b0a950098950003b040871" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_conf&#39;) == &#39;not_sure&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Detailed guidance on SSL/TLS and cipher suites is beyond the scope of this questionnaire. A very good and well-maintained resource is <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Mozilla&rsquo;s SSL/TLS configuration wiki page</a>, which gives up-to-date recommendations for the most common use cases. Another good resource for reviewing the security of your SSL/TLS server is <a href="https://www.ssllabs.com/ssltest/">SSL Labs' server test</a>.</p>
+</div>
+</div>
+<p><strong>Does your server offer <a href="https://en.wikipedia.org/wiki/Forward_secrecy">forward secrecy</a> for clients that support it?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_forward_secrecy"
+  id="https_forward_secrecy-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_forward_secrecy-1">Yes, the server supports ECDHE and DHE ciphers that offer forward secrecy.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_forward_secrecy"
+  id="https_forward_secrecy-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_forward_secrecy-2">No, no ciphers providing forward secrecy are enabled.</label>
+</div>
+<div id="dp-show-9190b20007100931baa5003801d84895" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_forward_secrecy&#39;) == &#39;no&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+In ciphers that support forward secrecy, an ephemeral key is negotiated for each connection, using the Diffie-Hellman algorithm. This key is used for a limited period of time, after which it is &ldquo;forgotten.&rdquo; Even if the private SSL key is later compromised, an attacker who recorded conversations between the server and clients won&rsquo;t be able to decrypt those conversations without also breaking the associated ephemeral keys. Enabling ciphers that offer forward secrecy can protect your users against future disclosure of the information transmitted between them and your server.</p>
+</div>
+</div>
+<p><strong>Are your SSL/TLS private keys appropriately protected on your web servers?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_private_keys"
+  id="https_private_keys-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_private_keys-1">Yes, we have taken all necessary steps to protect our private keys.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_private_keys"
+  id="https_private_keys-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_private_keys-2">I&rsquo;m not sure how well protected they are.</label>
+</div>
+<div id="dp-show-34a19ba05800d8001071998039201b50" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_private_keys&#39;) == &#39;no&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Make sure private SSL/TLS keys are, at a minimum, protected through file system permissions. It&rsquo;s important to make sure the user account that&rsquo;s used to serve web pages does not have access; otherwise, a vulnerability in the web app could easily lead to a compromise of the keys. If you are using an SSL certificate with a wildcard CN (e.g., *.example.net), ensure that the private key is well protected on all the servers it resides on (not just your most important server).</p>
+</div>
+</div>
+<p><strong>Where is the SSL connection between the user and your application terminated?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination"
+  id="https_termination-1"
+  value="appserver"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination-1">At the application server</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination"
+  id="https_termination-2"
+  value="loadbalancer"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination-2">At the load balancer</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination"
+  id="https_termination-3"
+  value="somewhere"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination-3">Somewhere else</label>
+</div>
+<div id="dp-show-29d041b01109030aa5b0305887981009" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_termination&#39;) == &#39;somewhere&#39;">
+<p><strong>Provide more details on the termination point:</strong></p>
+<textarea 
+	name="https_termination_somewhere_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-07130aba0d582403990195180b081090" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_termination&#39;) == &#39;loadbalancer&#39;">
+<p><strong>How is traffic between the load balancer and the application servers protected?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination_lb_traffic"
+  id="https_termination_lb_traffic-1"
+  value="encrypted"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination_lb_traffic-1">Traffic is encrypted and certificates between load balancer and application servers are validated.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination_lb_traffic"
+  id="https_termination_lb_traffic-2"
+  value="unencrypted-trusted"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination_lb_traffic-2">Traffic is unencrypted, but all networks transited between load balancers and application servers are owned and exclusively used by us.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination_lb_traffic"
+  id="https_termination_lb_traffic-3"
+  value="unencrypted-untrusted"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination_lb_traffic-3">Traffic is unencrypted, and traffic has to transit through networks not owned and exclusively used by us.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_termination_lb_traffic"
+  id="https_termination_lb_traffic-4"
+  value="other"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_termination_lb_traffic-4">Through other means.</label>
+</div>
+</div>
+<div id="dp-show-1009bba8581193049d3000a072900158" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_termination_lb_traffic&#39;) == &#39;unencrypted-untrusted&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Because user traffic appears to transit networks behind your load balancer that are not fully owned and operated by you, we strongly recommend that you establish another SSL/TLS connection between the load balancer and the servers that actually serve the application. Otherwise, an attacker who can listen in on the traffic behind your load balancers will be able to see unencrypted user data.</p>
+</div>
+</div>
+<div id="dp-show-1995389b4a0800101b00a9025708130d" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_termination_lb_traffic&#39;) == &#39;other&#39;">
+<p><strong>Describe how the traffic is protected:</strong></p>
+<textarea 
+	name="https_termination_lb_traffic_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<p><strong>Applications served over SSL may still be vulnerable to attacks if resources (often JavaScript, style sheets, or other active content) are included over plain HTTP. This defeats the purpose of SSL, because the active content loaded through plain HTTP will have access to the DOM of content protected by SSL. Make sure no resources are included from plain HTTP sites. Typically, browsers will help identify cases where resources from non-SSL sites are included, by displaying <a href="https://developer.mozilla.org/en-US/docs/Security/MixedContent">mixed content</a> warnings.</strong></p>
+<p><strong>To avoid these issues, do you have checks in place to ensure that all references to resources either point to SSL or are protocol-relative?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_mixedcontent"
+  id="https_mixedcontent-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_mixedcontent-1">Yes, we are very careful and have specific controls in place to prevent mixed-content issues.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="https_mixedcontent"
+  id="https_mixedcontent-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="https_mixedcontent-2">It wouldn&rsquo;t be too difficult for something to fall through the cracks and introduce mixed-content bugs.</label>
+</div>
+<div id="dp-show-90010a1b98a0513704900538d0018b29" class="baz" style="display:none" v-if="skwad.fValue(&#39;https_mixedcontent&#39;) == &#39;no&#39;">
+<input type="hidden" name="warn_https_mixedcontent" value="Mixed content issue">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Mixed content is a big deal, and it&rsquo;s becoming more problematic as an increasing number of users roam on public Wi-Fi and other insecure networks. We recommend cleaning up your codebase to avoid this kind of issue, and establishing procedures to help guard against new instances.
+<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below.</strong></p>
+<textarea 
+	name="https_mixedcontent_details" 
+	required="true" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+ <!-- {https_exposition} == 'https' or {https_exposition} == 'http_https --></p>
+<h2 ref="authentication-and-authorization" >Authentication and Authorization</h2><a class="anchor" id="authentication-and-authorization"></a>
+<p><strong>To get started, tell us a little about your application so we can ask you the right questions.</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_basic_infos"
+  id="Auths_basic_infos-1"
+  value="login_required"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_basic_infos-1">Our application requires regular users to log in. Most features aren&rsquo;t available without logging in.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_basic_infos"
+  id="Auths_basic_infos-2"
+  value="isolated_admin_ui"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_basic_infos-2">In addition to an interface for regular users, our application provides an administration interface.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_basic_infos"
+  id="Auths_basic_infos-3"
+  value="rbac_model"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_basic_infos-3">Our application features complex user management. Various roles can be assigned to user accounts.</label>
+</div>
+</p>
+<div id="dp-show-00decbabc5c2c2f030dcc96d7b6c73bd" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;rbac_model&#39;)">
+<p><strong>Briefly describe the different roles your application provides. If your application also offers custom role definitions, be sure to mention that.</strong></p>
+<textarea 
+	name="Auths_rbac_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<p>
+<div id="dp-show-cb053dc7cd07c0fba0d2bcc66b9c23ed" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;login_required&#39;) || skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;isolated_admin_ui&#39;)">
+<p><strong>Is your application integrated with any of the following single sign-on (SSO) mechanisms?</strong></p>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_sso_mechanisms"
+  id="Auths_sso_mechanisms-1"
+  value="SAML2"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_sso_mechanisms-1">SAML 2.0</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_sso_mechanisms"
+  id="Auths_sso_mechanisms-2"
+  value="OpenIDConnectOAuth2"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_sso_mechanisms-2">OpenID Connect / OAuth2 Login</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_sso_mechanisms"
+  id="Auths_sso_mechanisms-3"
+  value="OpenID2"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_sso_mechanisms-3">OpenID 2.0</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_sso_mechanisms"
+  id="Auths_sso_mechanisms-4"
+  value="LDAP"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_sso_mechanisms-4">LDAP / Active Directory</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_sso_mechanisms"
+  id="Auths_sso_mechanisms-5"
+  value="other"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_sso_mechanisms-5">Other</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_sso_mechanisms"
+  id="Auths_sso_mechanisms-6"
+  value="none"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_sso_mechanisms-6">None of the above</label>
+</div>
+<div id="dp-show-b7363bbd50c6c2c9df0cdc00a27cbced" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_sso_mechanisms&#39;).includes(&#39;other&#39;)">
+<p><strong>What other SSO mechanisms does the application support?</strong></p>
+<textarea 
+	name="Auths_sso_other_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-b636ddd52fccce0700c79b0bdcbca32c" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_sso_mechanisms&#39;).includes(&#39;OpenID2&#39;) &amp;&amp; !(skwad.fValue(&#39;Auths_sso_mechanisms&#39;).includes(&#39;OpenIDConnectOAuth2&#39;))">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+OpenID 2.0 has been replaced by OpenID Connect (also called OAuth2 Login). We recommend updating your application&rsquo;s SSO integration to support OpenID Connect.</p>
+</div>
+</div>
+<div id="dp-show-d33acc70cc6c70b26efdb9bd50d2bcc0" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_sso_mechanisms&#39;).includes(&#39;LDAP&#39;)">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Integrating with LDAP and/or Active Directory has a significant downside: any application that integrates with it has to receive the user&rsquo;s SSO password. As a result, a vulnerability in any integrated application puts the password at risk for all other applications. We recommend using an SSO mechanism that does not require the password to be sent anywhere other than a central authentication system.</p>
+</div>
+</div>
+<div id="dp-show-cdbb902d03cf0a67c0e7d5c6db2bc3cc" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_sso_mechanisms&#39;).includes(&#39;OpenIDConnectOAuth2&#39;)">
+<h3 ref="oauth2-login" >OAuth2 Login</h3><a class="anchor" id="oauth2-login"></a>
+<p><strong>Implementing OAuth2 Login / OpenID Connect from scratch is fairly complex and error-prone, and mistakes can result in security vulnerabilities. Select the option that best describes your implementation:</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_oauth2_impl"
+  id="Auths_oauth2_impl-1"
+  value="very_secure"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_oauth2_impl-1">Very secure: We&rsquo;re using a standard OAuth2 library, and we update it when security fixes are released.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_oauth2_impl"
+  id="Auths_oauth2_impl-2"
+  value="secure"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_oauth2_impl-2">Secure: We implemented OAuth2 on our own, but our employees are experts and we&rsquo;re convinced that it is implemented securely.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_oauth2_impl"
+  id="Auths_oauth2_impl-3"
+  value="own_impl"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_oauth2_impl-3">Not sure: We implemented OAuth2 on our own, and it seemed simple at the time. I&rsquo;m not sure about the security of our implementation</label>
+</div>
+</p>
+<div id="dp-show-893a152ffda13cc651814068a0d20b1a" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_oauth2_impl&#39;) == &#39;secure&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+If your employees really are OAuth2 experts, you&rsquo;re probably fine. But note that even standard libraries have had vulnerabilities due to the intricacies of the standard. Be sure to ask your penetration testing provider to take a look at the OAuth2 implementation.</p>
+</div>
+</div>
+<div id="dp-show-5139cdf81004ab1052813a2c66daaf81" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_oauth2_impl&#39;) == &#39;own_impl&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Implementing OAuth2 on your own is extremely dangerous. Even the experts on the OAuth2 standards panel concluded that the only way to securely implement it is through a well-known and well-tested library. Some of these libraries are very easy to use (e.g., the <a href="https://developers.google.com/identity/toolkit/">Google Identity Toolkit</a>), so replacing your custom implementation should be feasible.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="Auths_oauth2_impl_compensatingcontrols" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<p><strong>Does any part of the application employ username/password-based authentication?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password"
+  id="Auths_handle_password-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password"
+  id="Auths_handle_password-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password-2">No, all authentication is based on single sign-on (SSO).</label>
+</div>
+<div id="dp-show-7b0bc3a2f6c9e0cd3d6cb02c75cc0dbd" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password&#39;) == &#39;yes&#39;">
+<h3 ref="usernamepassword-authentication" >Username/Password Authentication</h3><a class="anchor" id="usernamepassword-authentication"></a>
+<p><strong>What username/password-based logins does the application use? For example, if there&rsquo;s a separate administrator authentication, mention that.</strong>
+<textarea 
+	name="Auths_handle_password_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</p>
+<p><strong>Does your application allow users to change their passwords?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_allowusechange"
+  id="Auths_handle_password_allowusechange-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_allowusechange-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_allowusechange"
+  id="Auths_handle_password_allowusechange-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_allowusechange-2">No</label>
+</div>
+<div id="dp-show-cdb2b347bf644e4f3078b38eee57f624" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_allowusechange&#39;) == &#39;no&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Allowing users to change their passwords is important. A user might be recovering from a compromise, or might have accidentally typed the password elsewhere.
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="Auths_handle_password_allowusechange_compensatingcontrols" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</p>
+<p><strong>Does the application enforce minimum password security requirements (e.g., a certain length, character classes, etc.)?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_policyenforced"
+  id="Auths_handle_password_policyenforced-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_policyenforced-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_policyenforced"
+  id="Auths_handle_password_policyenforced-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_policyenforced-2">No</label>
+</div>
+<div id="dp-show-5ff68eb74e3e334ec647b48b20f24bd7" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_policyenforced&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Please help protect users from themselves by enforcing certain minimum password requirements. It&rsquo;s up to you to determine the details of these requirements, but they should account for the sensitivity of the information and should conform to industry standards.
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="Auths_handle_password_policyenforced_compensatingcontrols" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</p>
+<h4 ref="password-storage" >Password Storage</h4><a class="anchor" id="password-storage"></a>
+<p><strong>How does the application store passwords?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_storage"
+  id="Auths_handle_password_storage-1"
+  value="plaintext"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_storage-1">In plain text (unencrypted)</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_storage"
+  id="Auths_handle_password_storage-2"
+  value="reversible"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_storage-2">Using reversible encryption (e.g., DES, 3DES, AES, etc.).</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_storage"
+  id="Auths_handle_password_storage-3"
+  value="hashnosalted"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_storage-3">Using a secure cryptographic one-way hash function (such as SHA-256) of the password, without the use of a salt</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_storage"
+  id="Auths_handle_password_storage-4"
+  value="hashsalted"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_storage-4">Using a secure cryptographic one-way hash function (such as SHA-256) of the salted password</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_storage"
+  id="Auths_handle_password_storage-5"
+  value="keyderivationcypher"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_storage-5">Using a dedicated password-based key derivation function, such as bcrypt, PBKDF2 or scrypt</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_storage"
+  id="Auths_handle_password_storage-6"
+  value="none"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_storage-6">None of the above</label>
+</div>
+</p>
+<div id="dp-show-4ed4268b7fb38454cf67b3307bfee4e2" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_storage&#39;) == &#39;none&#39;">
+<p><strong>Explain how your application stores passwords:</strong></p>
+<textarea 
+	name="Auths_handle_password_storage_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-2b3745ee302b4c44b7b6f4886efe7fd3" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_storage&#39;) == &#39;plaintext&#39; || skwad.fValue(&#39;Auths_handle_password_storage&#39;) == &#39;reversible&#39; || skwad.fValue(&#39;Auths_handle_password_storage&#39;) == &#39;hashnosalted&#39;">
+<div class="alert danger" role="alert"><strong>Warning — possible critical-risk issue</strong></div>
+<div class="notices danger">
+	<p>Passwords should be stored in such a way that the original passwords cannot be easily recovered, even if an attacker manages to get access to the storage location (e.g., through a SQL injection vulnerability). At a minimum, passwords should be secured using a cryptographic one-way hash function and a salt. We strongly recommended using password-based key derivation function like bcrypt PBKDF2 or scrypt instead; they were specifically designed for this use case and make it significantly harder for attackers to crack password hashes.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="Auths_handle_password_allowusechange_compensatingcontrols" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<h4 ref="setting-an-initial-password" >Setting an Initial Password</h4><a class="anchor" id="setting-an-initial-password"></a>
+<p><strong>How do users get their initial passwords?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_init_process"
+  id="Auths_handle_password_init_process-1"
+  value="selfset"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_init_process-1">Users self-register and set their passwords online directly within the application.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_init_process"
+  id="Auths_handle_password_init_process-2"
+  value="linktoset"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_init_process-2">The initial password or a link to set the initial password is sent to users by email.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_init_process"
+  id="Auths_handle_password_init_process-3"
+  value="physical"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_init_process-3">The initial password is provided in a (physical) letter sent to a verified address.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_init_process"
+  id="Auths_handle_password_init_process-4"
+  value="none"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_init_process-4">None of the above.</label>
+</div>
+</p>
+<div id="dp-show-2e5db8c3f703f7f3bbee4286447e46b4" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_init_process&#39;) == &#39;none&#39;">
+<p><strong>Explain how users get their initial passwords:</strong></p>
+<textarea 
+	name="Auths_handle_password_init_process_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-b4ef06bc64b7fde2e28fb5444338e773" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_init_process&#39;) == &#39;linktoset&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+If passwords are sent by email, make sure users are required to change their initial passwords when they first log in.</p>
+</div>
+</div>
+<p><strong>When the user gets their initial password, will their account be prepopulated with any confidential information? For example, in an online payroll portal, a user can typically access previous pay statements even when the account is brand new.</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_init_dataavailable"
+  id="Auths_handle_password_init_dataavailable-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_init_dataavailable-1">Yes, when users log in for the first time, confidential information will already be present.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="Auths_handle_password_init_dataavailable"
+  id="Auths_handle_password_init_dataavailable-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_init_dataavailable-2">No, at the initial login, no confidential information will be available to the user.</label>
+</div>
+</p>
+<h4 ref="account-recovery" >Account Recovery</h4><a class="anchor" id="account-recovery"></a>
+<p><strong>When the user gets their initial password, will their account be prepopulated with any confidential information? For example, in an online payroll portal, a user can typically access previous pay statements even when the account is brand new.</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_handle_password_recovery"
+  id="Auths_handle_password_recovery-1"
+  value="questions"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_recovery-1">The user is asked questions that were set up when the account was created.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_handle_password_recovery"
+  id="Auths_handle_password_recovery-2"
+  value="resetlink"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_recovery-2">A password reset link is sent via email to the user&rsquo;s registered email address.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_handle_password_recovery"
+  id="Auths_handle_password_recovery-3"
+  value="newpassbymail"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_recovery-3">A new password is sent via email to the user&rsquo;s registered email address.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="Auths_handle_password_recovery"
+  id="Auths_handle_password_recovery-4"
+  value="none"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="Auths_handle_password_recovery-4">None of the above.</label>
+</div>
+</p>
+<div id="dp-show-8370fb3ceef7b4f765ed4b48326e244b" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_recovery&#39;).includes(&#39;none&#39;)">
+<p><strong>Describe your password recovery mechanism:</strong></p>
+<textarea 
+	name="Auths_handle_password_recovery_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-33b8ebb6fc5264e784f7d44b32fe407e" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_recovery&#39;).includes(&#39;questions&#39;) &amp;&amp;  !(skwad.fValue(&#39;Auths_handle_password_recovery&#39;).includes(&#39;resetlink&#39;)) &amp;&amp; !(skwad.fValue(&#39;Auths_handle_password_recovery&#39;).includes(&#39;newpassbymail&#39;))">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Recovery questions alone should not be sufficient for resetting a password. The answers to these questions are often not as secret as they might seem; in particular, friends and family can often easily guess the answers.
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong>
+\</p>
+<textarea 
+	name="Auths_handle_password_recovery_questions_compensatingcontrols" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-bd4b08ef7eeb5f48c2f64427b763e334" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_handle_password_recovery&#39;).includes(&#39;newpassbymail&#39;)">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Sending passwords by email is rarely a good idea. Email is generally unencrypted, so it should not be used for sensitive information. Instead, we recommend sending a token that can be used to set the actual password. Although an attacker with the token could still reset the password, the user would at least become aware of the reset when they later attempted to log in.
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="Auths_handle_password_recovery_email_compensatingcontrols" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+ <!-- `{Auths_handle_password} == 'yes'`s -->
+</div>
+ <!-- `{Auths_basic_infos} has 'login_required' or {Auths_basic_infos} has 'isolated_admin_ui'` --></p>
+<div id="dp-show-60dcbbd0dc37cfcdbc0e76a259cc03b2" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;login_required&#39;) || skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;isolated_admin_ui&#39;)">
+<h3 ref="authentication-cookies-and-sessions" >Authentication Cookies and Sessions</h3><a class="anchor" id="authentication-cookies-and-sessions"></a>
+<p><strong>Cookies can be decorated with a special keyword, <code>HttpOnly</code>. If this keyword is set, the browser will not allow JavaScript to access the cookie. Even if the application has a cross-site scripting vulnerability, this keyword makes it much harder for an attacker to steal the session cookie.</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_httponly"
+  id="auths_cookies_sessions_httponly-1"
+  value="handled"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_httponly-1">The <code>HttpOnly</code> keyword is set for all our authentication cookies.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_httponly"
+  id="auths_cookies_sessions_httponly-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_httponly-2">Our application does not make use of this defense-in-depth mechanism.</label>
+</div>
+<div id="dp-show-dab9b677a560736c0edb383d1e41c898" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_httponly&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Setting the <code>HttpOnly</code> attribute is a very simple defense-in-depth mechanism. We highly recommended making use of it.
+<br>
+<strong>If there are specific reasons why this is not possible in your case please explain below</strong></p>
+<textarea 
+	name="auths_cookies_sessions_httponly_why" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<p><strong>Session IDs can be constructed in many ways. Select the methods used in your application:</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="auths_cookies_sessions_id"
+  id="auths_cookies_sessions_id-1"
+  value="framework"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_id-1">The web application framework we use has a built-in session ID mechanism.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="auths_cookies_sessions_id"
+  id="auths_cookies_sessions_id-2"
+  value="randomalphanum"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_id-2">Our session IDs are randomly generated strings or numbers.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="auths_cookies_sessions_id"
+  id="auths_cookies_sessions_id-3"
+  value="signedcookie"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_id-3">We store a signed token as a cookie to indicate that the user is successfully logged in.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="auths_cookies_sessions_id"
+  id="auths_cookies_sessions_id-4"
+  value="other"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_id-4">We use some other mechanism.</label>
+</div>
+</p>
+<div id="dp-show-33876c87eade91419c78065ad03dbb6b" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_id&#39;).includes(&#39;other&#39;)">
+<p><strong>Describe the mechanism you&rsquo;re using</strong></p>
+<textarea 
+	name="auths_cookies_sessions_id_no_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-33a6b1addb9087cc4be631567e70898d" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_id&#39;).includes(&#39;framework&#39;)">
+<p><strong>What&rsquo;s the name of the framework that generates your session IDs</strong></p>
+<p><input 
+name="auths_cookies_sessions_id_framework_name" 
+required="false" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+</div>
+<div id="dp-show-41ae77c9e805863dbb3c681d36a9d0b7" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_id&#39;).includes(&#39;randomalphanum&#39;) || skwad.fValue(&#39;auths_cookies_sessions_id&#39;).includes(&#39;signedcookie&#39;)">
+<p><strong>Do sessions automatically time out after a specified period of inactivity</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_timeout"
+  id="auths_cookies_sessions_timeout-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_timeout-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_timeout"
+  id="auths_cookies_sessions_timeout-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_timeout-2">No</label>
+</div>
+<div id="dp-show-0abd6383bec871c4375d6e9abd896107" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_timeout&#39;) == &#39;yes&#39; || skwad.fValue(&#39;auths_cookies_sessions_id&#39;).includes(&#39;framework&#39;)">
+<p><strong>How long is the session timeout?</strong></p>
+<p><input 
+name="application_auth_cookies_timeout_length" 
+required="false" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+</div>
+</div>
+<div id="dp-show-397ac68b90a7dc13b6d03b848d16e57e" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_timeout&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+If you don&rsquo;t specify a session timeout, an attacker who has stolen a session ID once will have a permanent back door to the application. Be sure to implement a timeout — even if it&rsquo;s fairly long, it&rsquo;s still better than no timeout at all).
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="auths_cookies_sessions_timeout_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-d315b0ba607db41c89c8ea73739ed668" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_id&#39;).includes(&#39;randomalphanum&#39;)">
+<p><strong>Does the application use a secure <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator#Cryptographically_secure_pseudorandom_number_generators">cryptographic pseudo random number generator</a> (PRNG) to generate session IDs? The PRNG should not allow the state of the generator to be recalculated from its output, and the entropy of the session ID should be sufficient to make brute-forcing infeasible.</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_prng"
+  id="auths_cookies_sessions_prng-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_prng-1">Yes, we use a PRNG that meets these criteria</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_prng"
+  id="auths_cookies_sessions_prng-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_prng-2">No, we don&rsquo;t use a PRNG, or our PRNG doesn&rsquo;t meet these criteria.</label>
+</div>
+<div id="dp-show-6b76ded8654ea0310c8c9173bdb79a83" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_prng&#39;) == &#39;no&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+If you&rsquo;re not using a cryptographic PRNG, an attacker can recalculate the state of the generator in order to guess subsequent session IDs and steal those users' sessions. Many programming languages already have a secure PRNG built in (e.g., Java has <code>java.security.SecureRandom</code>; C# has <code>System.Security.Cryptography.RNGCryptoServiceProvider</code>; Python has <code>os.urandom</code>), and in most cases it is as easy to use as a less secure option.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="auths_cookies_sessions_prng_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<p><strong>Does your application offer a &ldquo;log out&rdquo; button or link that, when clicked, not only terminates the session (deletes cookies from the client) but also invalidates the entire session ID?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_logoutexists"
+  id="auths_cookies_sessions_logoutexists-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_logoutexists-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_cookies_sessions_logoutexists"
+  id="auths_cookies_sessions_logoutexists-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_cookies_sessions_logoutexists-2">No</label>
+</div>
+</p>
+<div id="dp-show-605ae3c68b73a84d31ce7990b876ddb1" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_cookies_sessions_logoutexists&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Unless sessions are invalidated on logout, an attacker who has stolen a session ID will have access to the user&rsquo;s data until the session expires. Make sure all logout actions invalidate the session ID.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="auths_cookies_sessions_logoutexists_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<div id="dp-show-bccd07c9ad2cb607f6b2c50b033edcdc" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;login_required&#39;) || skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;isolated_admin_ui&#39;)">
+<h3 ref="authorization" >Authorization</h3><a class="anchor" id="authorization"></a>
+<p>In most applications, certain information should only be accessible to certain users. For example, in most applications that require authentication, only the currently logged-in user should be able to change master data (such as the username, the associated email address, or the account password). When an application has data that should not be available to other users or should be restricted to certain roles, authorization must be enforced on the server side.</p>
+<p><strong>Horizontal Access Control: Horizontal access control refers to isolation between users of the same role. For example, consider an application that allows users to access their payroll statements. The application must ensure that a user cannot access another user&rsquo;s statements; i.e., if the user&rsquo;s statement for the month of May is found at <code>statement.html?id=8372&amp;month=5</code>, it shouldn&rsquo;t be possible to see someone else&rsquo;s pay stub simply by loading <code>statement.html?id=8373&amp;month=5</code>.</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_isolation_data"
+  id="auths_authorization_isolation_data-1"
+  value="handled"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_isolation_data-1">Our application enforces these restrictions on the server side. We have processes in place to make sure nothing slips through the cracks.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_isolation_data"
+  id="auths_authorization_isolation_data-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_isolation_data-2">It&rsquo;s possible that we missed checks like this in a few places.</label>
+</div>
+</p>
+<div id="dp-show-7300bddcf4d50c8f61cf74bd3917e13a" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_isolation_data&#39;) == &#39;no&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Applications must have controls in place that help protect all data from unauthorized access. We recommend that you thoroughly audit your code for vulnerabilities resulting from inadequate access control.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="auths_authorization_isolation_data_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<p><strong>Vertical Access Control: When an application supports multiple roles, users should not be able to gain privileges or perform unauthorized actions by loading pages or features that should only be available to users in a different role. Throughout your application, have you ensured that users can perform only those actions that are appropriate for their roles?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_isolation_features"
+  id="auths_authorization_isolation_features-1"
+  value="handled"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_isolation_features-1">Our application enforces these restrictions on the server side. We have processes in place to make sure nothing slips through the cracks.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_isolation_features"
+  id="auths_authorization_isolation_features-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_isolation_features-2">It&rsquo;s possible that we missed checks like this in a few places.</label>
+</div>
+</p>
+<div id="dp-show-fbd7a1d6c09333e1d450cc7bfd18f407" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_isolation_features&#39;) == &#39;no&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Applications must have controls in place that protect all functionality from unauthorized access. We recommend that you thoroughly audit your code for vulnerabilities resulting from inadequate access control.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="auths_authorization_isolation_features_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<p>
+<div id="dp-show-cb0ef6962db373b7c0cd20adbdcccc05" class="baz" style="display:none" v-if="skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;login_required&#39;) || skwad.fValue(&#39;Auths_basic_infos&#39;).includes(&#39;isolated_admin_ui&#39;)">
+<h3 ref="authorization-related-web-vulnerabilities" >Authorization-Related Web Vulnerabilities</h3><a class="anchor" id="authorization-related-web-vulnerabilities"></a>
+<h4 ref="cross-site-request-forgery" >Cross Site Request Forgery</h4><a class="anchor" id="cross-site-request-forgery"></a>
+<p>Applications must protect all state-changing actions against cross-site request forgery (XSRF). In this attack, a malicious user forces the victim to send a request to the application, for example by luring the user to a page under the attacker&rsquo;s control. Because the browser automatically attaches available authentication cookies, the request will appear to be authorized if the user is logged in to the application.</p>
+<p>For example, consider an online banking application that allows users to transfer money to another account. The URL for transfers might look something like this:</p>
+<p><code>https://www.example.com/bank-transfer.html?dest_account=123456&amp;amount=99.90&amp;submit=true</code></p>
+<p>If an attacker manages to lure the victim to a malicious site, the site could include HTML that causes such a request to be sent:</p>
+<p><code>&lt;img src=&quot;https://www.example.com/bank-transfer.html?dest_account=666&amp;amount=99.90&amp; submit=true&quot;&gt;</code></p>
+<p>If the user is logged in to the online banking portal, the application will receive that request and check for authentication cookies — which will be present, since the request was sent from the authorized user&rsquo;s browser.</p>
+<p><strong>Does your application protect all state-changing actions against XSRF?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_XSRF"
+  id="auths_authorization_XSRF-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSRF-1">Yes, all state-changing actions are protected. We have a way to ensure that no actions are missed (such as enforcing XSRF-token checks in a central place).</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_XSRF"
+  id="auths_authorization_XSRF-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSRF-2">Some actions might not be protected against XSRF.</label>
+</div>
+</p>
+<div id="dp-show-ff61744c3fc8cb4639d86bf81c8d2f74" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_XSRF&#39;) == &#39;no&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Web applications used to process private or confidential information should protect against XSRF. We recommend that you thoroughly audit your code for XSRF vulnerabilities, and put procedures in place so that future code is also protected.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="auths_authorization_XSRF_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-c637817b34d14f2c6ff89bf44c8d6cf8" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_XSRF&#39;) == &#39;yes&#39;">
+<p><strong>What strategy do you use to protect against XSRF?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_XSRF_strategy"
+  id="auths_authorization_XSRF_strategy-1"
+  value="token"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSRF_strategy-1">We protect requests that change the state with tokens that are bound to the user they were generated for, and that expire after a certain amount of time.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_XSRF_strategy"
+  id="auths_authorization_XSRF_strategy-2"
+  value="header"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSRF_strategy-2">We use a custom fixed header that we add to requests.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_XSRF_strategy"
+  id="auths_authorization_XSRF_strategy-3"
+  value="post"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSRF_strategy-3">The application does one of the following: verifies the referrer header; requires all state-changing actions to be POST requests; employs another mechanism to protect against XSRF</label>
+</div>
+</div>
+<div id="dp-show-36c2fffc4bf1846c3dd7c78b48f81649" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_XSRF_strategy&#39;) == &#39;header&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Various browser plugins (such as Flash and Java) have had security vulnerabilities that allowed an attacker to set arbitrary custom headers on cross-domain requests. We highly recommend the use of tokens instead of headers.</p>
+</div>
+</div>
+<div id="dp-show-f413f76688c27bf48c148fdb93c6cfd4" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_XSRF_strategy&#39;) == &#39;post&#39;">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Unfortunately, using POST requests does not protect against XSRF. Attackers can perform cross-domain POST requests by submitting a form with the appropriate <code>action</code> parameter, via JavaScript. Referrer checks are similarly ineffective because attackers can get around them through open redirects.<br>
+<br>
+<strong>If you are using an alternative, effective method to protect against XSRF, describe it:</strong></p>
+<textarea 
+	name="auths_authorization_XSRF_no_alternative" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<h4 ref="cross-site-script-inclusion" >Cross-Site Script Inclusion</h4><a class="anchor" id="cross-site-script-inclusion"></a>
+<p><strong>Many web applications use AJAX to exchange data in the background, using a syntax that can be automatically interpreted as JavaScript by the user&rsquo;s browser. Unfortunately, this leads to <a href="http://capec.mitre.org/data/definitions/111.html">cross-site script inclusion</a> (XSSI) vulnerabilities: the JavaScript can be included from a different origin, and any variables set at the other origin can be read.</strong></p>
+<p>For example, consider a contact management application that transmits the user&rsquo;s contacts in a JSON file (contacts.js):</p>
+<p><code>var contacts = {&quot;name&quot;: &quot;John Doe&quot;, &quot;address&quot;: &quot;jdoe@example.com&quot;, ... }</code></p>
+<p>An attacker can include the following script from their own site, so that when the user visits the attacker&rsquo;s site while logged in to the contact management application, the attacker can read the variable contacts and get access to all of the victim&rsquo;s contact information.</p>
+<p><code>&lt;script src=&quot;http://www.example.com/contacts.js&quot;&gt;&lt;/script&gt;</code></p>
+<p><strong>Do either of the following statements describe your application?</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="auths_authorization_XSSI"
+  id="auths_authorization_XSSI-1"
+  value="jsonp"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSSI-1">Our application makes use of <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a>.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="auths_authorization_XSSI"
+  id="auths_authorization_XSSI-2"
+  value="no"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_XSSI-2">Our application uses another format that sets variables or calls functions with non-public information.</label>
+</div>
+</p>
+<div id="dp-show-38498c14fbffcc6d4b6674cf823f18d7" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_XSSI&#39;).includes(&#39;no&#39;)">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Web applications that transmit private information must be protected against XSSI, to prevent attackers from stealing the private data.<br>
+<br>
+<strong>If you are using an alternative, effective method to protect against XSSI, describe it:</strong></p>
+<textarea 
+	name="auths_authorization_XSSI_no_alternative" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<h4 ref="clickjacking" >Clickjacking</h4><a class="anchor" id="clickjacking"></a>
+<p><strong>Depending on the nature of your application and the actions that can be taken in it, you may need to protect against <a href="https://www.owasp.org/index.php/Clickjacking">clickjacking</a>.</strong></p>
+<p><strong>If you don&rsquo;t typically need to frame web pages, your application should use the <a href="https://developer.mozilla.org/en/the_x-frame-options_response_header">X-Frame-Options response header</a> to tell the browser not to render any page that&rsquo;s framed from a different origin:</strong></p>
+<p><code>X-Frame-Options: SAMEORIGIN</code></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_clickjacking"
+  id="auths_authorization_clickjacking-1"
+  value="handled"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_clickjacking-1">Our application employs protections against clickjacking (such as using the <code>X-Frame-Options</code> header).</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="auths_authorization_clickjacking"
+  id="auths_authorization_clickjacking-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="auths_authorization_clickjacking-2">Our application does not have such protections.</label>
+</div>
+<div id="dp-show-f16483fff96d4bd4fcc876c8372bc841" class="baz" style="display:none" v-if="skwad.fValue(&#39;auths_authorization_clickjacking&#39;).includes(&#39;no&#39;)">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Clickjacking is difficult to address. But in high-risk applications, clickjacking protection is essential.<br>
+<br>
+<strong>Explain why you consider clickjacking protection unnecessary</strong></p>
+<textarea 
+	name="auths_authorization_clickjacking_no_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+ <!-- Authorization-Related Web Vulnerabilities --></p>
+<h2 ref="common-web-vulnerabilities" >Common Web Vulnerabilities</h2><a class="anchor" id="common-web-vulnerabilities"></a>
+<p><strong>Certain features can result in security issues, if used incorrectly. To help us identify potential issues, select the statements that describe your application:</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln"
+  id="webvuln-1"
+  value="db"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln-1">The application uses a database back end, or any other persistence back end that can be queried with SQL or a related language (e.g., GQL, FQL, SOQL, etc.).</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln"
+  id="webvuln-2"
+  value="plugin"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln-2">The application requires a plugin, such as Java, Flash, Silverlight, etc.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln"
+  id="webvuln-3"
+  value="upload"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln-3">The application has a file upload feature.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln"
+  id="webvuln-4"
+  value="3rdpartycontent"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln-4">The application loads active content, such as scripts, applets, or style sheets, from third-party servers (i.e., any server that is not under your direct control).</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln"
+  id="webvuln-5"
+  value="xml"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln-5">The application processes or manipulates user-provided XML.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln"
+  id="webvuln-6"
+  value="crypto"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln-6">The application uses cryptography to encrypt data or protect its integrity.</label>
+</div>
+</p>
+<div id="dp-show-ec685bc9d30420a3cd8d548ee480e317" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;3rdpartycontent&#39;)">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Loading content from other sites is dangerous under certain circumstances; security issues in the other sites might also affect the security of your application. Scripts, for example, have full access to the DOM of the site on which they&rsquo;re included — so if one of the servers that hosts your third-party JavaScript gets compromised, the attacker also gains access to all of your users' data, simply by injecting a bit of code.<br>
+<br>
+Unless you trust the third party completely (not only to not do something malicious, but also to be secure enough to adequately protect their infrastructure against attackers), it&rsquo;s best not to load scripts or style sheets (e.g., via <code>&lt;script src=...&gt;</code> or <code>&lt;style src=...&gt;</code>) from third-party sites.<br>
+<br>
+Similarly (although to a lesser extent), directly embedding videos, frames, or images (including advertisements, tracking pixels, etc.) from third-party sources can be dangerous. Loading such a resource can leak information to the site it&rsquo;s loaded from (e.g., through the referrer). This can be a privacy issue as well as a security issue.<br>
+<br>
+<br>
+<br>
+<strong>If your application loads third-party content, describe your threat model:</strong></p>
+<textarea 
+	name="webvuln_3rdpartycontent_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-e233cb4446859d78e581a008dde30cec" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;xml&#39;)">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Dealing with user-provided and untrusted XML may make your application vulnerable to attacks. For example, the expat XML parser (written in C) has been found vulnerable to buffer overflow attacks. Even if you use a secure parser (or run it in a sandbox), things that can go wrong.<br>
+<br>
+Various attacks rely on the attacker&rsquo;s ability to specify XML entities. Entities are &ldquo;codes&rdquo; (such as <code>&amp;quot;</code>) that are translated into defined strings by the parser. HTML has a predefined set of entities, but in XML, entities can be specified arbitrarily. An entity specification usually looks like this:<br>
+<br>
+<code>&lt;!ENTITY ent &quot;Hello!&quot;&gt;</code><br>
+<br>
+With this definition, whenever the parser comes across <code>&amp;ent;</code>, it will replace it with <code>Hello!</code>. Entities are usually defined in the document type, which can be provided in a separate file or in the <code>&lt;!DOCTYPE&gt;</code> section at the beginning of an XML document.Entities are used in a variety of XML-related attacks. For example, they can be used for something called the <a href="http://www.ibm.com/developerworks/xml/library/x-tipcfsx/index.html">billion laughs attack</a>, where an entity resolves to other entities, which resolve to other entities, etc., causing high memory usage and essentially resulting in a denial-of-service attack.<br>
+<br>
+Even more serious is an attack using <a href="http://www.securiteam.com/securitynews/6D0100A5PU.html">external entities</a>. Definitions of external entities look similar to regular entity definitions, but they reference local files or URLs. Unless the XML parser has been specifically instructed not to expand external entities, a definition like <code>&lt;!ENTITY etc SYSTEM &quot;file:///etc/passwd&quot;&gt;</code> would include the /etc/passwd file where the entity <code>&amp;etc;</code> occurs in the XML document, leading to the disclosure of files as well as internal URLs.It&rsquo;s very important to restrict entity specification in user-provided or untrusted XML. Make sure your parser is adequately configured.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="webvuln_xml_compensating_controles" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<h3 ref="cross-site-scripting" >Cross-Site Scripting</h3><a class="anchor" id="cross-site-scripting"></a>
+<p><a href="https://www.owasp.org/index.php/XSS">Cross-site scripting</a> (or XSS for short) occurs when an application redisplays insufficiently sanitized user input in the context of the application&rsquo;s origin (as defined by the <a href="http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy">same-origin policy</a>).
+If the user input contains certain kinds of scripting code, it may read or alter the DOM of the current page when redisplayed.<br>
+In many cases, XSS is used to steal users' cookies or other application-related data, but it may also be used for phishing attacks, or even to deface the web page. <br>
+Unfortunately, XSS is one of the most common security issues in web applications, and due to browser quirks and other factors, quite hard to protect against.</p>
+<p><strong>Select the statements that describe your strategy:</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_xss_strategies"
+  id="webvuln_xss_strategies-1"
+  value="templating"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_strategies-1">We use a templating system that automatically escapes all user input before redisplaying it.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_xss_strategies"
+  id="webvuln_xss_strategies-2"
+  value="chokepoint"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_strategies-2">Our application has a central choke point where all user input is validated and escaped, depending on the context in which it will be interpreted.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_xss_strategies"
+  id="webvuln_xss_strategies-3"
+  value="perpage"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_strategies-3">Some of the pages (or all of them) escape user input.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_xss_strategies"
+  id="webvuln_xss_strategies-4"
+  value="other"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_strategies-4">We are using some other technique to protect against XSS.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_xss_strategies"
+  id="webvuln_xss_strategies-5"
+  value="sanitization"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_strategies-5">Part of the application deals with user-provided HTML that is sanitized and re-displayed to the user.</label>
+</div>
+</p>
+<div id="dp-show-3eeb1a39b6276ebf3feba92330347bba" class="baz" style="display:none" v-if="!(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;templating&#39;)) &amp;&amp; !(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;chokepoint&#39;)) &amp;&amp; !(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;perpage&#39;)) &amp;&amp; !(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;other&#39;)) &amp;&amp; !(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;sanitization&#39;))">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+You didn&rsquo;t select a strategy for protecting against cross-site scripting.<br>
+<br>
+<strong>Explain why:</strong></p>
+<textarea 
+	name="webvuln_xss_strategies_no_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-6ae4b33601bb7e33b2faab72e9b39f3e" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;templating&#39;)">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Using a templating system to escape user input is a good way to protect against XSS. But be careful with directives that disable automatic escaping, and watch for the direct display of user input (for example, in error messages). Additionally, be aware of the context in which user input is used in templates. Not all templating systems automatically understand that different escaping may be required, depending on where in the application the user input is displayed. For example, many templating systems would not correctly escape a construct such as <code>&amp;gt;a href=\&quot;{{ user_input }}\&quot;&amp;lt;</code>, where a user could supply <code>javascript:alert(/xss/)</code> as user_input. We recommend using a context-sensitive templating system.</p>
+</div>
+</div>
+<div id="dp-show-32a6ba0e7f2b9b3e7eb1b363ae9b343f" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;chokepoint&#39;)">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+A central choke point for validating and escaping user input is generally a good way to protect against XSS. But make sure your application identifies the context in which the user input is being used; otherwise, it might still be possible to smuggle in JavaScript through user input. You might also want to consider using a context-sensitive templating system, to address this issue automatically.</p>
+</div>
+</div>
+<div id="dp-show-306723b2baebbbefea3939b47631eaf3" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;perpage&#39;) &amp;&amp; !(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;templating&#39;)) &amp;&amp; !(skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;chokepoint&#39;))">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Escaping user input on each page individually is a fairly dangerous strategy: it&rsquo;s very easy to miss something. We recommend using a templating system that automatically escapes user input, ideally in a context-sensitive fashion. Some examples are listed below. Note that not all of these are context-sensitive, so you may still need to do manual escaping (or explicitly tag a variable in the template) when the context is something other than HTML.\</p>
+<ul>
+<li><a href="https://www.djangoproject.com/">Django</a> (Python)</li>
+<li><a href="http://code.google.com/p/ctemplate/?redir=1">Google</a> CTemplates (C++)</li>
+<li><a href="http://code.google.com/p/jsilver/">Jsilver</a> (Java)</li>
+<li><a href="https://developers.google.com/closure/templates/">Closure/Soy</a> (Javascript, Java)</li>
+<li><a href="http://jquery.com/">JQuery</a> (JavaScript)</li>
+<li><a href="http://www.smarty.net/">Smarty</a> (PHP)</li>
+</ul>
+</div>
+</div>
+<div id="dp-show-9fa1e79e4bba33f36e7bb6ba033322be" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;other&#39;)">
+<p><strong>Describe your strategy for protecting against XSS vulnerabilities:</strong></p>
+<textarea 
+	name="webvuln_xss_strategies_other_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-3347baf2e03aebe3fba693b27eb396b1" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_strategies&#39;).includes(&#39;sanitization&#39;)">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Unfortunately, due to error-correcting behavior and browser quirks, getting HTML sanitization right is very difficult. The sanitization code has to build an in-memory representation of the DOM, and then serialize that to a known-safe format. Some libraries do this correctly, so we highly recommended using a well-tested library.<br>
+<br>
+<strong>Describe how your application deals with HTML sanitization:</strong></p>
+<textarea 
+	name="webvuln_xss_strategies_sanitization_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<p><strong>In addition to applying the strategies you&rsquo;ve identified, does the application set a valid and appropriate content type and character set for each page (in the <code>Content-Type</code> HTTP header)?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_xss_content_type"
+  id="webvuln_xss_content_type-1"
+  value="handled"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_content_type-1">Yes, we take great care to set this, knowing that otherwise we might be introducing XSS vulnerabilities.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_xss_content_type"
+  id="webvuln_xss_content_type-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_content_type-2">I&rsquo;m not sure all pages set an appropriate content type.</label>
+</div>
+</p>
+<div id="dp-show-b93eaa3a373331bb7eefbb2e66b204f9" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_content_type&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Not setting both a content type and a character set often leads to cross-site scripting vulnerabilities. For example, if the application outputs JSON but sets the content type to text/html, this might result in XSS because JavaScript/JSON escaping is different from HTML escaping. We recommend that you thoroughly audit your code for pages that don&rsquo;t set the content type correctly.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="webvuln_xss_content_type_no_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-2b16e3eb3a30f4297ba9b3be7e6f3a3b" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;upload&#39;)">
+<p><strong>Earlier, you noted that the application has a file upload feature. Does the application allow other users (or administrators) to access the files that are uploaded?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_xss_fileupload"
+  id="webvuln_xss_fileupload-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_fileupload-1">Yes, this is a feature of our application.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_xss_fileupload"
+  id="webvuln_xss_fileupload-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_fileupload-2">No, uploaded files are processed but can&rsquo;t be downloaded again.</label>
+</div>
+</div>
+<div id="dp-show-3bfbb3ba37e6ba9eef96b2174a303e32" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_fileupload&#39;) == &#39;yes&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Hosting and serving user-provided content is almost guaranteed to introduce XSS vulnerabilities. Because of various browser quirks, countermeasures (such as setting a <code>Content-Disposition: attachment</code> header) do not provide full protection. We recommend serving user-provided content on a domain separate from all domains that have authentication cookies. However, this approach introduces another problem, if access to the content is intended to be authenticated. You can solve this by using short-lived random tokens, or by serving each document from a separate domain. If you use the latter approach, each domain should have a unique set of authentication cookies, valid only for the one document that&rsquo;s served from the domain.<br>
+<br>
+<strong>Describe your strategy for protecting against XSS vulnerabilities introduced by serving user-provided content:</strong></p>
+<textarea 
+	name="webvuln_xss_fileupload_yes_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<p><strong>Some XSS vulnerabilities work exclusively on the client side, in an application&rsquo;s scripting code. This kind of XSS is commonly referred to as <a href="https://www.owasp.org/index.php/DOM_Based_XSS">DOM-based XSS</a>. Because server-side escaping of user input does not protect against DOM-based XSS, you need a strategy for dealing with client-side scripting code that handles user input, as well as parts of the DOM that may contain user input (such as document.location).</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_xss_dombased"
+  id="webvuln_xss_dombased-1"
+  value="handled"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_dombased-1">We know about DOM-based XSS, and we take specific steps to protect against this kind of vulnerability.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_xss_dombased"
+  id="webvuln_xss_dombased-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_xss_dombased-2">It may be possible that something slipped through the cracks and our application has DOM-based XSS vulnerabilities.</label>
+</div>
+</p>
+<div id="dp-show-23ab93f4b0faeebebab636b9e1332377" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_xss_dombased&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+We recommend that you thoroughly audit your code for DOM-based XSS vulnerabilities, and put procedures in place so that future code is also protected.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="webvuln_xss_dombased_no_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-098288b1d465c470e58e3e4ec03c3dad" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;db&#39;)">
+<h3 ref="persistence-back-ends-and-querying" >Persistence Back Ends and Querying</h3><a class="anchor" id="persistence-back-ends-and-querying"></a>
+<p>Because your application uses a database or a similar back end to persist data, we need to make sure it&rsquo;s not vulnerable to injection attacks, such as <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL injection</a></p>
+<p>An application is vulnerable to SQL injection when some portion of user input is interpreted by the database as part of a query. When this occurs, an attacker may be able to read or even write data directly from or to the database.</p>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_db_sql"
+  id="webvuln_db_sql-1"
+  value="orm"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql-1">Our application uses an object-relational mapping (ORM) framework. When we need to manually construct queries or conditions, we use one of the mechanisms selected below:</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_db_sql"
+  id="webvuln_db_sql-2"
+  value="prepared"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql-2">We use prepared statements and let the framework take care of correctly escaping the user input.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_db_sql"
+  id="webvuln_db_sql-3"
+  value="stored"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql-3">We pass user input to the database via stored procedures.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_db_sql"
+  id="webvuln_db_sql-4"
+  value="manual"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql-4">We manually escape user input whenever we need to use it in a database query.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_db_sql"
+  id="webvuln_db_sql-5"
+  value="other"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql-5">We do something else.</label>
+</div>
+<div id="dp-show-13b76ff4ac538fb119220a9181b467b1" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;other&#39;)">
+<p><strong>Describe the other mechanism you&rsquo;re using to protect against SQL injection:</strong></p>
+<textarea 
+	name="webvuln_db_sql_other_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-b6aaf231715421104169c78bb1f8bf39" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;orm&#39;)">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Using an ORM layer is generally a good way to protect against SQL injection. However, in most ORM frameworks, it&rsquo;s possible to directly specify parts of the SQL query. Some ORM frameworks also have a special querying language that makes it possible to set the <code>WHERE</code> part of the statement. In these cases, you still need to be sure to guard against injection vulnerabilities.</p>
+</div>
+</div>
+<div id="dp-show-f141354091c187b12bfa98266fba71b3" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;orm&#39;)">
+<p><strong>What ORM framework are you using ?</strong></p>
+<textarea 
+	name="webvuln_sql_orm" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-78f2b9b3a1f61511bc217b16a039f484" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;stored&#39;)">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Using stored procedures is generally a good way to protect against SQL injection. But this strategy must be used consistently. Make sure neither the stored procedures themselves nor the calls of the stored procedures are vulnerable to injection attacks.</p>
+</div>
+</div>
+<div id="dp-show-1407181996153412b2faafb736fb8b1c" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;prepared&#39;) &amp;&amp; !(skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;manual&#39;))">
+<p><strong>Do you take special steps (policies, code reviews, audits, etc.) to ensure that prepared statements are used consistently, and that string concatenation is never used to construct database queries?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_db_sql_prepared"
+  id="webvuln_db_sql_prepared-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql_prepared-1">Yes, we have all or most of these measures in place, and we&rsquo;re very confident that there are no SQL injection vulnerabilities in our code.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_db_sql_prepared"
+  id="webvuln_db_sql_prepared-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_db_sql_prepared-2">We try to make our developers use prepared statements, but it may be possible for some string concatenation to slip through.</label>
+</div>
+</div>
+<div id="dp-show-bb081711aca386b4b2356f49192f7f11" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_db_sql&#39;).includes(&#39;manual&#39;) || skwad.fValue(&#39;webvuln_db_sql_prepared&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Manually escaping SQL (or related) queries is error-prone and very difficult to do consistently. Here are a couple of examples:\</p>
+<ul>
+<li>PHP provides the function <code>mysql_escape_string</code> for escaping user input that will be used in a database query. Unfortunately, that function does not take into account the character set of the connection, so it may still be possible to smuggle in user input that will be interpreted as part of the SQL query. Applications should use <code>mysql_real_escape_string</code> instead.</li>
+<li>In SQL, numbers do not need to be surrounded with quotation marks when used in a statement. For example, <code>SELECT username WHERE id=123</code> is perfectly valid. But if user-provided input that will be used as a number is not confirmed to be actually numeric, the resulting code will be vulnerable to SQL injection (even if the input is escaped).
+We highly recommend using something like prepared statements, or using an ORM layer consistently throughout the application. Make sure you have procedures in place to enforce your approach (such as static tests when code is checked into the repository).<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></li>
+</ul>
+<textarea 
+	name="webvuln_db_sql_prepared_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<div id="dp-show-0e8e0c456b7d3add3e89e1854c24803c" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;plugin&#39;)">
+<h3 ref="browser-plugins" >Browser Plugins</h3><a class="anchor" id="browser-plugins"></a>
+<p><strong>You mentioned that your application requires certain browser plugins to work correctly. Which of the following plugins are required?</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_plugin"
+  id="webvuln_plugin-1"
+  value="java"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_plugin-1">Java</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_plugin"
+  id="webvuln_plugin-2"
+  value="flash"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_plugin-2">Flash</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_plugin"
+  id="webvuln_plugin-3"
+  value="silverlight"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_plugin-3">Silverlight</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_plugin"
+  id="webvuln_plugin-4"
+  value="other"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_plugin-4">Other</label>
+</div>
+</p>
+<div id="dp-show-0e952630b53379bc0edf2c325449b3eb" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_plugin&#39;).includes(&#39;other&#39;)">
+<p><strong>What other plugins are required by your application?</strong></p>
+<p><input 
+name="webvuln_plugin_other" 
+required="false" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+</div>
+<div id="dp-show-eb93093e3ebf534264952dbb35200cc7" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_plugin&#39;).includes(&#39;other&#39;)">
+<p><strong>Explain what the plugin is used for, what technology it uses (e.g., ActiveX, NPAPI, Chrome plugin, etc.), how it is usually deployed to your users, and what privileges it requires:</strong></p>
+<textarea 
+	name="webvuln_plugin_other_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-9455e9b432b6e7300c3032bd35fce92b" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_plugin&#39;).includes(&#39;java&#39;)">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Enabling Java in the browser exposes users to a variety of security issues. We strongly discourage requiring Java.<br>
+<br>
+<strong>Is Java absolutely necessary for your application to function correctly? Are there any workarounds ?</strong></p>
+<textarea 
+	name="webvuln_plugin_java_workarounds" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-dbc02f6c3345b74e30b95993e5b0223e" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_plugin&#39;).includes(&#39;other&#39;)">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+In most cases, custom plugins are considered a security risk. Plugins can operate outside of the usual constraints (such as a same-origin policy, sandboxing, etc.) and can introduce security vulnerabilities that affect the entire browser. It&rsquo;s also often difficult to deploy and centrally manage them. We strongly discourage using custom plugins.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="webvuln_plugin_other_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<div id="dp-show-d8cc988378540dde3ee40e13c6420ab5" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;upload&#39;)">
+<h3 ref="file-uploads" >File Uploads</h3><a class="anchor" id="file-uploads"></a>
+<p><strong>You mentioned previously that your application allows users to upload files. Where does the application store those files?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_upload_storage"
+  id="webvuln_upload_storage-1"
+  value="fs"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage-1">On the file system</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_upload_storage"
+  id="webvuln_upload_storage-2"
+  value="db"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage-2">In a database</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="webvuln_upload_storage"
+  id="webvuln_upload_storage-3"
+  value="other"
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage-3">Somewhere else</label>
+</div>
+<div id="dp-show-80ac782aab806c99d44554351886431d" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_upload_storage&#39;) == &#39;other&#39;">
+<p><strong>Explain where the uploaded files are stored:</strong></p>
+<textarea 
+	name="webvuln_upload_storage_other_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-8350da93584d465b8a170862c44c89a1" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_upload_storage&#39;) == &#39;fs&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Storing uploaded files on the file system can be dangerous. Here are a few issues that can occur:<br>
+\</p>
+<ul>
+<li>Path traversal: The names of uploaded files must be carefully sanitized to prevent attackers from uploading files with paths in the name, such as <code>../../../../some_existing_file.html</code>. Files like these can end up in the wrong directory.</li>
+<li>Null bytes: The names of uploaded files must be examined for null bytes, which can cause file names to be truncated (e.g., a file called <code>evilfile.exe[0x00].gif</code> might become <code>evilfile.exe</code> when stored on disk).</li>
+<li>Interpretation: Files on the file system are much more likely to end up being interpreted. For example, if an attacker manages to store an uploaded file somewhere underneath the web root and names it <code>evilfile.php</code>, it might be executed as PHP code by the web server.
+<br>
+To prevent issues like these, store user-uploaded content in a database instead. If your application stores files on the file system, be sure to implement careful handling, validation, and sanitization of uploaded files.</li>
+</ul>
+</div>
+</div>
+<p><strong>In most cases, file type restrictions should be in place for uploads. What types of files does your application white-list?</strong>
+<p><input 
+name="webvuln_upload_storage_types" 
+required="false" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+</p>
+<p><strong>How does the application enforce these file type restrictions?</strong>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_upload_storage_type"
+  id="webvuln_upload_storage_type-1"
+  value="extension"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage_type-1">We verify the file type by checking the file extension on the server side.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_upload_storage_type"
+  id="webvuln_upload_storage_type-2"
+  value="contenttype"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage_type-2">We look at the content type that is sent by the user.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_upload_storage_type"
+  id="webvuln_upload_storage_type-3"
+  value="reencoding"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage_type-3">We decode and re-encode the file, storing only the result.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="webvuln_upload_storage_type"
+  id="webvuln_upload_storage_type-4"
+  value="other"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="webvuln_upload_storage_type-4">We employ another method to verify the file type.</label>
+</div>
+</p>
+<div id="dp-show-6c518b3849982d5463d8048c50174aaa" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_upload_storage&#39;) == &#39;other&#39;">
+<p><strong>Explain how you verify the file type and enforce the whitelist:</strong></p>
+<textarea 
+	name="webvuln_upload_storage_type_other_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+<div id="dp-show-1d89423c75ab8694880caa301d554864" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_upload_storage_type&#39;).includes(&#39;extension&#39;) &amp;&amp; skwad.fValue(&#39;webvuln_upload_storage&#39;) == &#39;fs&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Some web servers are configured by default to allow double file extensions. For example, if a user uploads a file called <code>malicious.php.gif</code>, it might actually be executed as PHP code upon retrieval. Because you store uploaded files on the file system, this issue may affect your application. Make sure your web server uses only the last extension (i.e., the part after the right-most dot in the file name) when determining how to process the file.\</p>
+</div>
+</div>
+<div id="dp-show-5c183341679c40a25548a69b48d088da" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_upload_storage_type&#39;).includes(&#39;reencoding&#39;)">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Re-encoding files uploaded by users is usually a very good approach. However, note that because the decoding and re-encoding works on untrusted user input (and because parsing is difficult and error-prone), it&rsquo;s best to perform these operations in a sandbox. That way, even if an attacker successfully exploits a vulnerability in the parser, the effects would be constrained to the sandboxed environment. Various sandboxing APIs are available, such as the <a href="http://sourceforge.net/projects/libseccomp/">Seccomp library</a> for Linux.<br>
+You could also run the decoder/encoder on an isolated virtual machine that&rsquo;s regularly reset to a predefined state. Note, however, that a successful attacker would still be able to observe all incoming and outgoing files, unless the reset happens after each individual file operation<br>
+Even with a sandboxed encoder, some attacker-provided content may survive the re-encoding. For example, in images, the EXIF metadata may be left intact. If this occurs and the content type is incorrectly set (or browser content-sniffing behavior kicks in), cross-site scripting vulnerabilities can result.<br>
+<br>
+<strong>Describe the steps you&rsquo;re taking to protect against vulnerabilities in the decoding and parsing code:</strong></p>
+<textarea 
+	name="webvuln_upload_storage_type_reencoding_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-5a514c584688080d62389ba3acd49714" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln_upload_storage_type&#39;).includes(&#39;contenttype&#39;) &amp;&amp; !(skwad.fValue(&#39;webvuln_upload_storage_type&#39;).includes(&#39;reencoding&#39;)) &amp;&amp; !(skwad.fValue(&#39;webvuln_upload_storage_type&#39;).includes(&#39;extension&#39;))">
+<div class="notices danger">
+	<p><strong>Warning — possible high-risk issue</strong><br>
+<br>
+Unfortunately, verifying the content type of uploaded files is generally not sufficient for enforcing a whitelist. Because the content type is a field in the HTTP request sent by the user, it can be arbitrarily set by an attacker (for example, by using an interception proxy). At a minimum, the application should also verify the extension at the very end of the file name and check it against the whitelist.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="webvuln_upload_storage_type_contentypeonly_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+<div id="dp-show-0d07ee3e34d8d90826c1ce88543a4c5b" class="baz" style="display:none" v-if="skwad.fValue(&#39;webvuln&#39;).includes(&#39;crypto&#39;)">
+<h3 ref="use-of-cryptography" >Use of Cryptography</h3><a class="anchor" id="use-of-cryptography"></a>
+<p>You previously mentioned that your application uses cryptography to ensure the confidentiality and/or integrity of information. That&rsquo;s great! But we want to make sure you&rsquo;re using cryptography correctly.</p>
+<p>Note: when using cryptography, make sure algorithms are used in the right context and within appropriate constraints. For example, encrypting a session ID does not prevent an attacker from manipulating it. Similarly, a signature does not protect a message&rsquo;s confidentiality.</p>
+<p><strong>Describe your use of cryptography (what information is encrypted/signed, how, why, what algorithms are used, etc.). Be as specific and precise as possible:</strong>
+<textarea 
+	name="webvuln_crypto_details" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</p>
+</div>
+<h2 ref="testing-qa-and-monitoring" >Testing, QA, and Monitoring</h2><a class="anchor" id="testing-qa-and-monitoring"></a>
+<p>Security testing can be part of standard application tests. Here are some examples:</p>
+<ul>
+<li><strong>Simple unit tests</strong>: Unit tests are typically used to confirm that the basic building blocks of the application work as expected. Unit tests are easy to repeat — they can run whenever new code is checked into the repository, to confirm that the code still behaves as expected. Unit tests can also check for security features. For example, they can be used to confirm that requests fail without XSRF tokens; that authentication is required to access user data; or that unexpected HTML tags can&rsquo;t get through input filters or escaping routines.</li>
+<li><strong>Release testing</strong>: Before a new version of a product is released, human testers typically go through the application, try the new features, and make sure previous features still work correctly (regression testing). Security testing should be included in this process as well. For example, release testing is a great time to verify that user A cannot access the data of user B.</li>
+<li><strong>Monitoring</strong>: Once the application is deployed, the focus usually shifts from testing to monitoring. Watch out for unexpected spikes in error rates, sandbox violations, and other flaky or inexplicable behavior (including intermittent test failures) — and before you dismiss an anomaly, check with your security team. Crashes and flakiness can indicate a race condition or a memory corruption bug.</li>
+</ul>
+<p>The next few questions assess the testing and monitoring of your application.</p>
+<p><strong>Are you using unit tests or similar methods?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit"
+  id="application_testing_unit-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit"
+  id="application_testing_unit-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit-2">No</label>
+</div>
+</p>
+<p>
+<div id="dp-show-d84a9154f4791dadd5f4e9361ba736cf" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_testing_unit&#39;) == &#39;yes&#39;">
+<h3 ref="unit-testing" >Unit Testing</h3><a class="anchor" id="unit-testing"></a>
+<p><strong>How would you describe the code coverage of your unit tests?</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit_coverage"
+  id="application_testing_unit_coverage-1"
+  value="large"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit_coverage-1">Robust - The vast majority of our code is tested through unit tests; code coverage is at least &gt;80%.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit_coverage"
+  id="application_testing_unit_coverage-2"
+  value="med"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit_coverage-2">Weak - We have some unit testing, but much of the code is not tested.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit_coverage"
+  id="application_testing_unit_coverage-3"
+  value="small"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit_coverage-3">Nonexistent - We have no (or almost no) unit tests.</label>
+</div>
+<div id="dp-show-16d9f145d33e4f7d948c6aaf957ad4b1" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_testing_unit_coverage&#39;) == &#39;med&#39; || skwad.fValue(&#39;application_testing_unit_coverage&#39;) == &#39;small&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Unit tests have become quasi-standard for testing the functionality of software at a low level. Although this questionnaire focuses on security, the functional correctness of the application is also important. Particularly for web applications, where it is difficult (often impossible) to fall back to a previous version, functional bugs can cause problems with both integrity and availability. Consider implementing unit tests.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="application_testing_unit_coverage_low_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<div id="dp-show-97df46f4d498bda1119d5a753ace4f36" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_testing_unit_coverage&#39;) == &#39;med&#39; || skwad.fValue(&#39;application_testing_unit_coverage&#39;) == &#39;large&#39;">
+<p><strong>Do you have special unit tests in place for testing the security of your code? For example, unit tests can be used to do the following:</strong></p>
+<ul>
+<li>Verify that XSRF tokens are required for all state-changing actions</li>
+<li>Confirm that user input is correctly escaped and/or sanitized</li>
+<li>Check that the application enforces access control (e.g., user A doesn&rsquo;t have access to user B&rsquo;s data)</li>
+</ul>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit_security"
+  id="application_testing_unit_security-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit_security-1">Yes</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_unit_security"
+  id="application_testing_unit_security-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_unit_security-2">No</label>
+</div>
+<div id="dp-show-9f4497aadfd3b61c3d4951e8fa76d514" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_testing_unit_security&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Scalable security depends on engineers doing their part — and common-sense, low-overhead unit tests are one of the most cost-efficient defenses available. Unit tests can help validate security parameters and avoid regressions that reintroduce security bugs. We strongly recommend including security checks in your unit tests.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="application_testing_unit_security_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</div>
+ <!-- Do you have special unit tests in place for testing -->
+</div>
+ <!-- Unit Testing --></p>
+<p><strong>Do your engineers and your QA team look for potential security issues during release testing, and have they been trained to do so?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_qa_security"
+  id="application_testing_qa_security-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_qa_security-1">Yes, our QA process explicitly includes testing for security issues that might have been introduced in the new version.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_testing_qa_security"
+  id="application_testing_qa_security-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_testing_qa_security-2">This is an area where we have some room for improvement.</label>
+</div>
+<div id="dp-show-4fb9cfaea894da6d14d79df134315657" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_testing_qa_security&#39;) == &#39;no&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Your engineering and QA teams are in the best position to understand how all parts of the application work, what has changed since the previous iteration, and how the changes might introduce security vulnerabilities. Release testing is typically done under considerable time pressure, but it&rsquo;s the last chance to catch security vulnerabilities internally. When your teams are already focused on testing, adding a few security tests won&rsquo;t increase the effort by much.<br>
+<br>
+Engineers and testers who have been trained to look for security issues can make all the difference between a secure product and a serious vulnerability.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="application_testing_qa_security_no_conpensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+</p>
+<h3 ref="post-launch-monitoring" >Post-Launch Monitoring</h3><a class="anchor" id="post-launch-monitoring"></a>
+<p><strong>How would you describe your post-launch monitoring?</strong>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_monitoring"
+  id="application_monitoring-1"
+  value="robust"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_monitoring-1">Robust - We have procedures in place to log and monitor for unexpected crashes, exceptions, and other error conditions. If something looks suspicious, a security-conscious engineer evaluates it.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_monitoring"
+  id="application_monitoring-2"
+  value="weak"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_monitoring-2">Weak - If something goes terribly wrong, such as massive spikes in crash rates or other large-scale anomalies, we will probably notice. But our monitoring is fairly coarse, and there is room for improvement.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="application_monitoring"
+  id="application_monitoring-3"
+  value="none"
+  class="custom-control-input">
+  <label class="custom-control-label" for="application_monitoring-3">Nonexistent - At the moment, we are not doing any kind of post-release monitoring that looks for signs of exploitation or increases in crashes/exceptions.</label>
+</div>
+<div id="dp-show-994d5a564af3461d7f147daf1ed93b8c" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_monitoring&#39;) == &#39;robust&#39;">
+<div class="notices primary">
+	<p><strong>Tip</strong><br>
+<br>
+Thank you for putting effort into post-launch monitoring. Exceptions often indicate an underlying security problem, and close monitoring goes a long way toward quickly identifying and subsequently fixing vulnerabilities.</p>
+</div>
+</div>
+</p>
+<div id="dp-show-f1e69da91447ada71dd95c348ff35b46" class="baz" style="display:none" v-if="skwad.fValue(&#39;application_monitoring&#39;) == &#39;weak&#39; || skwad.fValue(&#39;application_monitoring&#39;) == &#39;none&#39;">
+<div class="notices warning">
+	<p><strong>Warning — possible medium-risk issue</strong><br>
+<br>
+Exceptions and crashes often indicate an underlying security problem. Monitoring the deployed application can go a long way toward quickly identifying and subsequently fixing vulnerabilities. In carefully designed software products, exceptions should be a fairly rare occurrence; it therefore usually does not introduce significant overhead to monitor for them.<br>
+<br>
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you&rsquo;re working to address this issue, include an estimate of when it will be resolved:</strong></p>
+<textarea 
+	name="application_monitoring_weak_compensating_controls" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</div>
+</div>
+<h2 ref="additional-notes" >Additional Notes</h2><a class="anchor" id="additional-notes"></a>
+<p>Provide any additional information about the security of your application:
+
+
+
+
+
+
+<textarea 
+	name="additional_notes" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</p>
+<h2 ref="security-contacts" >Security Contacts</h2><a class="anchor" id="security-contacts"></a>
+<p>List the email addresses of people we should contact about any security issues in the application:
+
+
+
+
+
+
+<input 
+	name="security_contacts" 
+	required="false" 
+	placeholder='' 
+	type="text" class="form-control form-control-lg">
+</p>
+<h2 ref="feedback" >Feedback</h2><a class="anchor" id="feedback"></a>
+<p>Congratulations! You&rsquo;ve made it to the end of this questionnaire. If you can spare another minute, please let us know how we can improve it. Your feedback is highly appreciated.
+
+
+
+
+
+
+<textarea 
+	name="feedback" 
+	required="false" 
+	placeholder=''
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+</p>
+<hr>
+
+
+<div class="notices info">
+	<p><strong>Licence Info :</strong> this checklist was made from the VSAQ Vendor Security Assessment Questionnaire, licensed with Apache License 2.0 &ndash; More info here : <a href="https://github.com/google/vsaq">https://github.com/google/vsaq</a></p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="dp-show-a37e0802a70fb3aba4d20cdebffce5cb" class="baz" style="display:none" v-if="false">
+
+<h2 ref="show" >Show</h2><a class="anchor" id="show"></a>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="mychoices"
+  id="mychoices-1"
+  value="aa"
+  class="custom-control-input">
+  <label class="custom-control-label" for="mychoices-1">Show a block.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="mychoices"
+  id="mychoices-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="mychoices-2">Another block</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="mychoices"
+  id="mychoices-3"
+  value="foo"
+  class="custom-control-input">
+  <label class="custom-control-label" for="mychoices-3">No Block</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="mychoices"
+  id="mychoices-4"
+  value="two"
+  class="custom-control-input">
+  <label class="custom-control-label" for="mychoices-4">Show the two blocks</label>
+</div>
+<h3 ref="show-1" >show 1</h3><a class="anchor" id="show-1"></a>
+<div id="dp-show-00bbf25a7cf8abb2ee7dda03efc04ac3" class="baz" style="display:none" v-if="skwad.fValue(&#39;mychoices&#39;) == &#39;aa&#39; || skwad.fValue(&#39;mychoices&#39;) == &#39;two&#39;">
+<div class="notices primary">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</div>
+<div id="dp-show-7b783cf0ac04dadcefab50b0a2feeb32" class="baz" style="display:none" v-if="skwad.fValue(&#39;mychoices&#39;) == &#39;no&#39;  || skwad.fValue(&#39;mychoices&#39;) == &#39;two&#39;">
+<div class="alert info" role="alert">No Alert selected !</div>
+</div>
+<h2 ref="text" >text</h2><a class="anchor" id="text"></a>
+<p>Quel est le code du projet ?</p>
+<div class="columns">
+  <div class="column">
+    <p><strong>Simple</strong></p>
+<p><input 
+name="app_name" 
+required="true" 
+placeholder='' 
+type="text" class="form-control form-control-lg"></p>
+  </div>
+  <div class="column">
+    <p><strong>Multiple</strong></p>
+<textarea 
+	name="app_name_multi" 
+	required="true" 
+	placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. '
+	name="paragraph" 
+	class="form-control" rows="3"></textarea>
+  </div>
+</div>
+<h2 ref="choices" >Choices</h2><a class="anchor" id="choices"></a>
+<p>Les enjeux de sécurité ont été identifiés par la SSI ?</p>
+<div class="columns">
+  <div class="column">
+    <p><strong>Simple</strong></p>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="app_vulnerability"
+  id="app_vulnerability-1"
+  value="yes"
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vulnerability-1">Yes, we have a published security email contact, or we provide another way for users to report security issues. Incoming reports are timely reviewed and triaged.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="app_vulnerability"
+  id="app_vulnerability-2"
+  value="no"
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vulnerability-2">No, we do not currently offer a way to report security vulnerabilities for priority handling</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" 
+  name="app_vulnerability"
+  id="app_vulnerability-3"
+  value="option-3"
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vulnerability-3">i don&rsquo;t know</label>
+</div>
+  </div>
+  <div class="column">
+    <p><strong>Multiple</strong></p>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="app_vulnerabilitymulti"
+  id="app_vulnerabilitymulti-1"
+  value="yes"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vulnerabilitymulti-1">Yes, we have a published security email contact, or we provide another way for users to report security issues. Incoming reports are timely reviewed and triaged.</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="app_vulnerabilitymulti"
+  id="app_vulnerabilitymulti-2"
+  value="no"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vulnerabilitymulti-2">No, we do not currently offer a way to report security vulnerabilities for priority handling</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="app_vulnerabilitymulti"
+  id="app_vulnerabilitymulti-3"
+  value="option-3"multiple
+  class="custom-control-input">
+  <label class="custom-control-label" for="app_vulnerabilitymulti-3">i don&rsquo;t know</label>
+</div>
+  </div>
+</div>
+<div id="dp-show-caea02ba2cdff774ebbc350dbf0e083a" class="baz" style="display:none" v-if="skwad.fValue(&#39;app_vulnerability&#39;) == &#39;no&#39; &amp;&amp; skwad.fValue(&#39;app_vulnerabilitymulti&#39;).includes(&#39;no&#39;)">
+<div class="alert danger" role="alert">OK !</div>
+</div>
+<h2 ref="list" >List</h2><a class="anchor" id="list"></a>
+<div class="columns">
+  <div class="column">
+    <p><strong>Simple</strong></p>
+<div class="form-group">
+<select 
+	name="select_from_list" 
+	required="false" 
+	ZgotmplZ
+	class="form-control">
+<option value="" selected>Choose....</option>
+<option value="czero">C0</option>
+<option value="cun">C1</option>
+<option value="cdeux">C2</option>
+</select>
+</div>
+  </div>
+  <div class="column">
+    <p><strong>Multiple</strong></p>
+<div class="form-group">
+<select 
+	name="multiselect" 
+	required="false" 
+	multiple
+	class="form-control">
+<option value="option-1">All</option>
+<option value="czero">C0</option>
+<option value="cun">C1</option>
+<option value="cdeux">C2</option>
+</select>
+</div>
+  </div>
+</div>
+<h2 ref="checkbox" >Checkbox</h2><a class="anchor" id="checkbox"></a>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" 
+  name="mycheck"
+  id="mycheck-0"
+  value="checked"
+  class="custom-control-input">
+  <label class="custom-control-label" for="mycheck-0">J&amp;rsquo;ai tout compris 1</label>
+</div>
+<h2 ref="switch" >switch</h2><a class="anchor" id="switch"></a>
+<div class="custom-control custom-switch">
+  <input type="checkbox" name="myswitch" id="myswitch" class="custom-control-input" value="on">
+  <label class="custom-control-label" for="myswitch">Activer le truc</label>
+</div>
+<h2 ref="code" >Code</h2><a class="anchor" id="code"></a>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style=";" class="fas fa-chevron-right"></i>
+        <span>Expand me...</span>
+    </div>
+    <div class="expand-content" style="display: none;"><p>Change on any element form</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js">	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;form&#39;</span>);
+	<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;change&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>,<span style="color:#a6e22e">v</span>) {
+    	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;element changed&#34;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>,<span style="color:#a6e22e">v</span>)
+	});
+<p></code></pre></div><p>Get all data</p></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js">	<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;form[name=myform]&#34;</span>).<span style="color:#a6e22e">serializeArray</span>()
+</code></pre></div><p>Download file :</p>
+<ul>
+<li>date</li>
+<li>ref</li>
+<li>url</li>
+<li>data</li>
+<li>hash or signature</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">downloadFile</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">123</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;4 5 6&#34;</span>};
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">filename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;download.json&#34;</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">blob</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Blob</span>([<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">obj</span>)], {<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text/plain&#39;</span>});
+    <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">navigator</span> <span style="color:#f92672">&amp;&amp;</span> window.<span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">msSaveOrOpenBlob</span>) {
+        window.<span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">msSaveOrOpenBlob</span>(<span style="color:#a6e22e">blob</span>, <span style="color:#a6e22e">filename</span>);
+    } <span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createEvent</span>(<span style="color:#e6db74">&#39;MouseEvents&#39;</span>),
+        <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;a&#39;</span>);
+        <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">download</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">filename</span>;
+        <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">createObjectURL</span>(<span style="color:#a6e22e">blob</span>);
+        <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">downloadurl</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;text/plain&#39;</span>, <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">download</span>, <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">href</span>].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;:&#39;</span>);
+        <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">initEvent</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">false</span>, window, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">false</span>, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">null</span>);
+        <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">dispatchEvent</span>(<span style="color:#a6e22e">e</span>);
+    }
+}
+</code></pre></div><p>load file 1 :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;change&#39;</span>, () =&gt; { 
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">files</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">files</span>; 
+<pre><code>&lt;span style=&quot;color:#66d9ef&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color:#a6e22e&quot;&gt;files&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;length&lt;/span&gt; &lt;span style=&quot;color:#f92672&quot;&gt;==&lt;/span&gt; &lt;span style=&quot;color:#ae81ff&quot;&gt;0&lt;/span&gt;) &lt;span style=&quot;color:#66d9ef&quot;&gt;return&lt;/span&gt;; 
+<p>&lt;span style=&quot;color:#75715e&quot;&gt;/* If any further modifications have to be made on the
+</code></pre></p>
+<p></span><span style="color:#75715e">       Extracted text. The text can be accessed using the<br>
+</span><span style="color:#75715e">       file variable. But since this is const, it is a read<br>
+</span><span style="color:#75715e">       only variable, hence immutable. To make any changes,<br>
+</span><span style="color:#75715e">       changing const to var, here and In the reader.onload<br>
+</span><span style="color:#75715e">       function would be advisible */</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">files</span>[<span style="color:#ae81ff">0</span>];</p>
+<pre><code>&lt;span style=&quot;color:#66d9ef&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color:#a6e22e&quot;&gt;reader&lt;/span&gt; &lt;span style=&quot;color:#f92672&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color:#66d9ef&quot;&gt;new&lt;/span&gt; &lt;span style=&quot;color:#a6e22e&quot;&gt;FileReader&lt;/span&gt;(); 
+<p>&lt;span style=&quot;color:#a6e22e&quot;&gt;reader&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;onload&lt;/span&gt; &lt;span style=&quot;color:#f92672&quot;&gt;=&lt;/span&gt; (&lt;span style=&quot;color:#a6e22e&quot;&gt;e&lt;/span&gt;) =&amp;gt; {
+&lt;span style=&quot;color:#66d9ef&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color:#a6e22e&quot;&gt;file&lt;/span&gt; &lt;span style=&quot;color:#f92672&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color:#a6e22e&quot;&gt;e&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;target&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;result&lt;/span&gt;;</p>
+<pre><code>&amp;lt;span style=&amp;quot;color:#75715e&amp;quot;&amp;gt;// This is a regular expression to identify carriage  
+</code></pre>
+<p></code></pre></p>
+<p></span><span style="color:#75715e"></span>        <span style="color:#75715e">// Returns and line breaks
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lines</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">/\r\n|\n/</span>);
+<span style="color:#a6e22e">textarea</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lines</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">'\n'</span>);</p>
+<pre><code>}; 
+<p>&lt;span style=&quot;color:#a6e22e&quot;&gt;reader&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;onerror&lt;/span&gt; &lt;span style=&quot;color:#f92672&quot;&gt;=&lt;/span&gt; (&lt;span style=&quot;color:#a6e22e&quot;&gt;e&lt;/span&gt;) =&amp;gt; &lt;span style=&quot;color:#a6e22e&quot;&gt;alert&lt;/span&gt;(&lt;span style=&quot;color:#a6e22e&quot;&gt;e&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;target&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;error&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;name&lt;/span&gt;);</p>
+<p>&lt;span style=&quot;color:#a6e22e&quot;&gt;reader&lt;/span&gt;.&lt;span style=&quot;color:#a6e22e&quot;&gt;readAsText&lt;/span&gt;(&lt;span style=&quot;color:#a6e22e&quot;&gt;file&lt;/span&gt;);
+</code></pre></p>
+<p>});
+</code></pre></div><p>load file 2 :</p></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onFileLoad</span>(<span style="color:#a6e22e">elementId</span>, <span style="color:#a6e22e">event</span>) {
+    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#a6e22e">elementId</span>).<span style="color:#a6e22e">innerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">result</span>;
+}
+<p><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">onChooseFile</span>(<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">onLoadFileHandler</span>) {
+<span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> window.<span style="color:#a6e22e">FileReader</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">'function'</span>)
+<span style="color:#66d9ef">throw</span> (<span style="color:#e6db74">&quot;The file API isn't supported on this browser.&quot;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>;
+<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">input</span>)
+<span style="color:#66d9ef">throw</span> (<span style="color:#e6db74">&quot;The browser does not properly implement the event object&quot;</span>);
+<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">files</span>)
+<span style="color:#66d9ef">throw</span> (<span style="color:#e6db74">&quot;This browser does not support the <code>files</code> property of the file input.&quot;</span>);
+<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">files</span>[<span style="color:#ae81ff">0</span>])
+<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">undefined</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">files</span>[<span style="color:#ae81ff">0</span>];
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FileReader</span>();
+<span style="color:#a6e22e">fr</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">onLoadFileHandler</span>;
+<span style="color:#a6e22e">fr</span>.<span style="color:#a6e22e">readAsText</span>(<span style="color:#a6e22e">file</span>);
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">'file'</span> <span style="color:#a6e22e">onchange</span><span style="color:#f92672">=</span><span style="color:#e6db74">'onChooseFile(event, onFileLoad.bind(this, &quot;contents&quot;))'</span> /&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&quot;contents&quot;</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+</code></pre></div></p>
+</div>
+</div>
+</div>
+
+
+
+		
+	<span></span>
+
+	
+
+	</form>
+	
+	
+	
+</div>
+
+
+
+
+
+
+	
+	
+
+      </section>
+
+      
+      
+      <section class="right-menu ">
+      
+	
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="TableOfContents">
+    <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
+    <nav>
+        <ul >
+            <li><a href="/content-and-customization/00-adding-content/page-skwad/ex-checklist/">WebApp Security Assessment</a></li>
+        </ul>
+    </nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#application-metadata">Application Metadata</a></li>
+    <li><a href="#vulnerability-reporting-and-management">Vulnerability Reporting and Management</a></li>
+    <li><a href="#https-and-mixed-content-risks">HTTPS and Mixed-Content Risks</a></li>
+    <li><a href="#authentication-and-authorization">Authentication and Authorization</a></li>
+    <li><a href="#common-web-vulnerabilities">Common Web Vulnerabilities</a></li>
+    <li><a href="#testing-qa-and-monitoring">Testing, QA, and Monitoring</a></li>
+    <li><a href="#additional-notes">Additional Notes</a></li>
+    <li><a href="#security-contacts">Security Contacts</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+  </ul>
+</nav>
+</div>
+
+	
+		<div class="checklist-footer">
+	<button type="button" 
+	onclick="skwad.saveDocumentAsFile(skwad.form.getAttribute('ref'));"
+	class="btn btn-success"><i class="fas fa-download"></i>&nbsp;Download Answers</button>
+</div>
+
+
+<div class="notices info">
+	<p>This checklist was made from the VSAQ Vendor Security Assessment Questionnaire, licensed with Apache License 2.0 &ndash; More info here : <a href="https://github.com/google/vsaq">https://github.com/google/vsaq</a></p>
+
+</div>
+
+
+		
+	
+			
+		
+	    	
+	    
+	<div class="Actions">
+	<nav>
+		<ul>
+				
+		    
+		    
+		    
+		    <li>
+		    	
+		        <a href="https://example.comadmin/#/collections/pages/entries/content-and-customization/00-adding-content/page-skwad/ex-checklist/_index" target="blank">
+		        <i class="fab fa-github"></i>
+		        Improve this page</a>
+		    </li>
+		    
+		    
+			
+		    
+
+    	</ul>
+	</nav>
+    
+</div>
+
+      </section>
+      
+    </article>
+    
+    
+    <footer>
+      
+
+		
+	
+			
+		
+	    	<style type="text/css">
+
+.footer-gray {
+  width: 100%;
+  color: #888;
+}
+
+.footer-custom {
+  font: normal normal 12px/1.4 sans-serif;
+  /*max-width: 1008px;*/
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.footer-custom:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.footer-lists:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.ftr-hdr {
+  color: white;
+  font: 22px/1.4  sans-serif;
+  margin: 1em 0 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .ftr-hdr {
+    font-size: 18px;
+  }
+}
+
+.footer-list-wrap {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 568px) {
+  .footer-list-wrap {
+    width: 33.3333%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-list-wrap {
+    width: 25%;
+  }
+}
+
+.ftr-links-sub {
+  padding: 0;
+  margin: 0;
+}
+
+.ftr-links-sub:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.ftr-links-sub li {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 3px 0;
+  color: #888;
+  font: normal normal 12px sans-serif;
+  text-transform: uppercase;
+  /*width: 150px;*/
+}
+
+.footer-custom a,
+.footer-custom a:link,
+.footer-custom a:visited,
+.ftr-links-sub li .link {
+  text-decoration: none;
+  color: #888;
+  padding: 5px 0;
+  display: block;
+}
+
+.footer-custom .footer-legal a {
+  display: inline;
+}
+
+.footer-custom a:hover,
+.footer-custom a:active,
+.ftr-links-sub li .link:hover {
+  text-decoration: underline;
+  color: #888;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-custom a, .footer-custom a:link, .footer-custom a:visited, .ftr-links-sub li .link {
+    padding: 0;
+  }
+}
+/* BEGIN EMAIL CAPTURE STYLES*/
+
+.footer-email {
+  text-align: center;
+}
+
+#ftrEmailForm {
+  height: 44px;
+}
+
+#ftrEmailForm .error {
+  display: none;
+  color: red;
+  text-align: left;
+}
+
+#ftrEmailForm #ftrEmailInput {
+  background: none repeat scroll 0 0 #FFF;
+  border: 1px solid #D6D6D6;
+  box-sizing: border-box;
+  color: #888;
+  float: left;
+  font: normal normal 14px/1.4 sans-serif;
+  padding: 5px;
+  width: 70%;
+  height: 100%;
+}
+
+#ftrEmailForm #ftrEmailInput:hover {
+  border: 1px solid #888;
+}
+
+#ftrEmailForm #ftrEmailInput:focus {
+  border: 1px solid #ef9223;
+  outline: #ef9223 auto 5px;
+}
+
+#ftrEmailForm .button {
+  width: 30%;
+  height: 100%;
+  padding: 5px;
+  float: left;
+  border: 1px solid #DFDFDF;
+  box-sizing: border-box;
+  color: #000;
+  font: normal bold 18px/1 sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  background: #FFF;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e1e1e1));
+  background: -webkit-linear-gradient(top, white 0, #e1e1e1 100%);
+  background: -moz-linear-gradient(top, white 0, #e1e1e1 100%);
+  background: -ms-linear-gradient(top, white 0, #e1e1e1 100%);
+  background: -o-linear-gradient(top, white 0, #e1e1e1 100%);
+  background: linear-gradient(to bottom, white 0, #e1e1e1 100%);
+  cursor: pointer;
+  vertical-align: middle;
+  outline: none;
+}
+
+#ftrEmailForm .button:hover,
+#ftrEmailForm .button:active {
+  background: black;
+  color: #FFF;
+  outline: none;
+}
+/* BEGIN SOCIAL STYLES*/
+
+.footer-social {
+  text-align: center;
+}
+
+.footer-social ul {
+  padding: 0;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.footer-social ul:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.footer-social li {
+  float: left;
+  margin: 0 15px 0 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-lists {
+    width: 100%;
+  }
+  .footer-email {
+    width: 50%;
+    float: left;
+    text-align: left;
+  }
+  .footer-social {
+    width: 45%;
+    margin-left: 5%;
+    float: left;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1008px) {
+  .footer-lists {
+    width: 66.6666%;
+    float: left;
+  }
+  .footer-email {
+    width: 33.3333%;
+  }
+  .footer-social {
+    width: 33.3333%;
+    float: right;
+    margin-left: 0;
+  }
+}
+
+.footer-legal {
+  padding: 15px 0 0;
+  clear: left;
+}
+
+.footer-payment {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-legal {
+    width: 66.6666%;
+    float: left;
+  }
+  .footer-payment {
+    width: 33.3333%;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 1008px) {
+  .footer-payment {
+    text-align: left;
+  }
+}
+
+.footer-payment ul {
+  padding: 0;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.footer-payment ul li {
+  display: inline-block;
+  margin: 0 6px;
+}
+
+@media only screen and (min-width: 1008px) {
+  .footer-payment ul li.ftr-stella {
+    margin-left: 0;
+  }
+}
+
+
+</style>
+  <div class="footer-gray">
+    <div class="footer-custom">
+      <div class="footer-lists">
+        <div class="footer-list-wrap">
+          <h6 class="ftr-hdr">Order Something</h6>
+          <ul class="ftr-links-sub">
+            <li>800-123-4567</li>
+          </ul>
+          <h6 class="ftr-hdr">International</h6>
+          <ul class="ftr-links-sub">
+            <li><a href="#" rel="nofollow">France</a></li>
+            <li><a href="#" rel="nofollow">Cape Verde</a></li>
+          </ul>
+        </div>
+        <div class="footer-list-wrap">
+          <h6 class="ftr-hdr">Customer Service</h6>
+          <ul class="ftr-links-sub">
+            <li><a href="#" rel="nofollow">Contact Us</a></li>
+            <li><a href="#" rel="nofollow">Ordering</a></li>
+            <li><a href="#" rel="nofollow">Shipping &amp; Delivery</a></li>
+            <li><a href="#" rel="nofollow">Returns</a></li>
+            <li><a href="#" rel="nofollow">Gift Cards</a></li>
+            <li><a href="#" rel="nofollow">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-list-wrap">
+          <h6 class="ftr-hdr">About DocPort</h6>
+          <ul class="ftr-links-sub">
+            <li><a href="#" rel="nofollow">Our Company</a></li>
+            <li><a href="#" rel="nofollow">Careers</a></li>
+            <li><a href="#" rel="nofollow">Affiliate Program</a></li>
+            <li><a href="#" rel="nofollow"><strong>Shop Our Catalog</strong></a></li>
+            <li><a href="#" rel="nofollow">DocPort BLOG</a></li>
+          </ul>
+        </div>
+        <div class="footer-list-wrap">
+          <h6 class="ftr-hdr">My Account</h6>
+          <ul class="ftr-links-sub">
+            <art:content rule="!loggedin">
+              <li class="ftr-Login"><span class="link login-trigger">Access My Account</span></li>
+              <li><span class="link">Track My Order</span></li>
+            </art:content>
+            <art:content rule="loggedin">
+              <li class="ftr-Login"><span class="link ftr-access-my-account">Access My Account</span></li>
+              <li><span class="link">Track My Order</span></li>
+            </art:content>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-email">
+        <h6 class="ftr-hdr">Sign up for exclusive offers and inspiration</h6>
+        <div id="ftr-email" class="ftr-email-form">
+          <form id="ftrEmailForm" method="post" action="#">
+            <div class="error">Please enter a valid email address</div>
+            <input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address"/>
+          </form>
+        </div>
+        <div class="ftr-email-privacy-policy"></div>
+      </div>
+      <div class="footer-social">
+        <h6 class="ftr-hdr">Follow Us</h6>
+        <ul>
+          <li>
+            <a href="#" title="Facebook">
+              <img width="24" height="24" alt="Like us on Facebook" src="/images/fb.png">
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Google+">
+              <img width="24" height="24" alt="Follow us on Google+" src="/images/gplus.png">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img width="24" height="24" alt="Follow us on Pinterest" src="/images/pin-badge.png">
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="#">
+              <img width="24" height="24" alt="Follow us on Instagram" src="/images/instagram-badge.png">
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Twitter">
+              <img width="67" alt="Follow us on Twitter" src="/images/twitter.png">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-legal">
+        <p>&copy; Docport MIT Licence. | <a href="#" rel="nofollow">Privacy Policy</a> | <a href="#" rel="nofollow">Terms of Use</a> | <a href="#" rel="nofollow">Terms of Sale</a></p>
+        <p>Docport is free Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+        <p>Various aspects of this website are ...blablabla</p>
+      </div>
+    </div>
+  </div>
+  <!--/.footer-gray-->
+	    
+	
+    </footer>
+    
+
+
+
+  </body>
+</html>
